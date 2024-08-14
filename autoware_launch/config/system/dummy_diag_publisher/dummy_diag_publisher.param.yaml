@@ -177,5 +177,35 @@
       "j6_interface: vehicle_errors": default
 
       # others
+      ## /others/002-blockage_validation/front_lower
+      "blockage_return_diag: /sensing/lidar/front_lower: blockage_validation": default
+
+      ## /others/002-blockage_validation/front_upper
+      "blockage_return_diag: /sensing/lidar/front_upper: blockage_validation": default
+
+      ## /others/002-blockage_validation/left_lower
+      "blockage_return_diag: /sensing/lidar/left_lower: blockage_validation": default
+
+      ## /others/002-blockage_validation/left_upper
+      "blockage_return_diag: /sensing/lidar/left_upper: blockage_validation": default
+
+      ## /others/002-blockage_validation/right_upper
+      "blockage_return_diag: /sensing/lidar/right_upper: blockage_validation": default
+
+      ## /others/002-blockage_validation/right_lower
+      "blockage_return_diag: /sensing/lidar/right_lower: blockage_validation": default
+
+      ## /others/002-blockage_validation/rear_lower
+      "blockage_return_diag: /sensing/lidar/rear_lower: blockage_validation": default
+
+      ## /others/002-blockage_validation/rear_upper
+      "blockage_return_diag: /sensing/lidar/rear_upper: blockage_validation": default
+
+      ## /others/005-visibility_validation/front_lower
+      "dual_return_filter: /sensing/lidar/front_lower: visibility_validation": default
+
+      ## /others/005-visibility_validation/left_upper
+      "dual_return_filter: /sensing/lidar/left_upper: visibility_validation": default
+
       ## /others/010-emergency_vehicle
       "emergency_vehicle_detector: emergency_vehicle": default
