@@ -6,7 +6,6 @@
 
       backward_length_buffer_for_end_of_lane: 3.0 # [m]
       backward_length_buffer_for_blocking_object: 3.0 # [m]
-      lane_change_finish_judge_buffer: 0.0      # [m]
 
       lane_changing_lateral_jerk: 0.3             # [m/s3]
 
