@@ -106,23 +106,23 @@
   </group>
 
   <!-- Planning -->
-  <group if="$(var launch_planning)">
+  <!-- <group if="$(var launch_planning)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_planning_component.launch.xml">
       <arg name="module_preset" value="$(var planning_module_preset)"/>
       <arg name="enable_all_modules_auto_mode" value="$(var enable_all_modules_auto_mode)"/>
       <arg name="is_simulation" value="$(var is_simulation)"/>
     </include>
-  </group>
+  </group> -->
 
   <!-- Control -->
-  <group if="$(var launch_control)">
+  <!-- <group if="$(var launch_control)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_control_component.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- API -->
-  <group if="$(var launch_api)">
+  <!-- <group if="$(var launch_api)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_autoware_api_component.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- V2X -->
   <group if="$(var launch_v2x)">
@@ -139,7 +139,7 @@
   </group>
 
   <!-- Tools -->
-  <group>
+  <!-- <group>
     <node
       pkg="rviz2"
       exec="rviz2"
@@ -149,5 +149,5 @@
       if="$(var rviz)"
       respawn="$(var rviz_respawn)"
     />
-  </group>
+  </group> -->
 </launch>

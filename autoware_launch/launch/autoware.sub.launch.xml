@@ -61,13 +61,13 @@
   </group>
 
   <!-- Pointcloud container -->
-  <include file="$(find-pkg-share autoware_launch)/launch/pointcloud_container.launch.py">
+  <!-- <include file="$(find-pkg-share autoware_launch)/launch/pointcloud_container.launch.py">
     <arg name="use_multithread" value="true"/>
     <arg name="container_name" value="$(var pointcloud_container_name)"/>
-  </include>
+  </include> -->
 
   <!-- Vehicle -->
-  <group if="$(var launch_vehicle)">
+  <!-- <group if="$(var launch_vehicle)">
     <include file="$(find-pkg-share tier4_vehicle_launch)/launch/vehicle.launch.xml">
       <arg name="vehicle_model" value="$(var vehicle_model)"/>
       <arg name="sensor_model" value="$(var sensor_model)"/>
@@ -76,34 +76,34 @@
       <arg name="config_dir" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)"/>
       <arg name="raw_vehicle_cmd_converter_param_path" value="$(find-pkg-share autoware_launch)/config/vehicle/raw_vehicle_cmd_converter/raw_vehicle_cmd_converter.param.yaml"/>
     </include>
-  </group>
+  </group> -->
 
   <!-- System -->
-  <group if="$(var launch_system)">
+  <!-- <group if="$(var launch_system)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_system_component.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- Map -->
-  <group if="$(var launch_map)">
+  <!-- <group if="$(var launch_map)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_map_component.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- Sensing -->
-  <group if="$(var launch_sensing)">
+  <!-- <group if="$(var launch_sensing)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_sensing_component.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- Localization -->
-  <group if="$(var launch_localization)">
+  <!-- <group if="$(var launch_localization)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- Perception -->
-  <group if="$(var launch_perception)">
+  <!-- <group if="$(var launch_perception)">
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_perception_component.launch.xml">
       <arg name="data_path" value="$(var data_path)"/>
     </include>
-  </group>
+  </group> -->
 
   <!-- Planning -->
   <group if="$(var launch_planning)">
@@ -125,18 +125,18 @@
   </group>
 
   <!-- V2X -->
-  <group if="$(var launch_v2x)">
+  <!-- <group if="$(var launch_v2x)">
     <include file="$(find-pkg-share jpn_signal_launcher)/launch/jpn_signal.launch.xml">
       <arg name="map_path" value="$(var map_path)"/>
       <arg name="vehicle_model" value="$(var vehicle_model)"/>
       <arg name="vehicle_id" value="1"/>
     </include>
-  </group>
+  </group> -->
 
   <!-- L4 Toolkit -->
-  <group if="$(var launch_l4_toolkit)">
+  <!-- <group if="$(var launch_l4_toolkit)">
     <include file="$(find-pkg-share l4_toolkit_launch)/launch/l4_toolkit.launch.xml"/>
-  </group>
+  </group> -->
 
   <!-- Tools -->
   <group>
