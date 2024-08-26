@@ -49,8 +49,9 @@ units:
   # Intermediate paths
   - path: /sensing/lidar/pndr/002-temperature-error
     type: warn-to-ok
-    list:
-      - { type: link, link: /sensing/lidar/pndr/002-temperature }
+    item:
+      type: link
+      link: /sensing/lidar/pndr/002-temperature
 
   # - path: /sensing/imu/001-monitor-error
   #   type: warn-to-ok
@@ -207,3 +208,131 @@ units:
     node: topic_state_monitor_radar_rear_right
     name: radar_rear_right_topic_status
     timeout: 1.0
+
+  - path: /sensing/lidar/front_lower/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/front_lower:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/front_lower/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/front_lower:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/front_lower/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/front_lower:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/front_upper/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/front_upper:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/front_upper/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/front_upper:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/front_upper/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/front_upper:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/left_lower/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/left_lower:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/left_lower/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/left_lower:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/left_lower/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/left_lower:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/left_upper/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/left_upper:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/left_upper/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/left_upper:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/left_upper/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/left_upper:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/right_lower/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/right_lower:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/right_lower/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/right_lower:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/right_lower/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/right_lower:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/right_upper/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/right_upper:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/right_upper/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/right_upper:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/right_upper/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/right_upper:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/rear_lower/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/rear_lower:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/rear_lower/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/rear_lower:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/rear_lower/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/rear_lower:"
+    name: pandar_temperature
+    timeout: 5.0
+
+  - path: /sensing/lidar/rear_upper/connection
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/rear_upper:"
+    name: pandar_connection
+    timeout: 5.0
+  - path: /sensing/lidar/rear_upper/ptp
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/rear_upper:"
+    name: pandar_ptp
+    timeout: 5.0
+  - path: /sensing/lidar/rear_upper/temperature
+    type: diag
+    node: "pandar_monitor: /sensing/lidar/rear_upper:"
+    name: pandar_temperature
+    timeout: 5.0
