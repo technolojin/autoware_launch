@@ -4,9 +4,8 @@
       backward_lane_length: 200.0 #[m]
       prepare_duration: 3.0         # [s]
 
-      backward_length_buffer_for_end_of_lane: 7.0 # [m]
-      backward_length_buffer_for_blocking_object: 0.5 # [m]
-      lane_change_finish_judge_buffer: 0.0      # [m]
+      backward_length_buffer_for_end_of_lane: 3.0 # [m]
+      backward_length_buffer_for_blocking_object: 3.0 # [m]
 
       lane_changing_lateral_jerk: 0.3             # [m/s3]
 
@@ -27,18 +26,31 @@
       min_longitudinal_acc: -0.5
       max_longitudinal_acc: 0.2
 
+      skip_process:
+        longitudinal_distance_diff_threshold:
+          prepare: 1.0
+          lane_changing: 1.0
+
       # safety check
       safety_check:
         allow_loose_check_for_cancel: true
         collision_check_yaw_diff_threshold: 3.1416
         execution:
           expected_front_deceleration: -1.0
-          expected_rear_deceleration: -1.0
-          rear_vehicle_reaction_time: 2.0
-          rear_vehicle_safety_time_margin: 1.0
+          expected_rear_deceleration: -1.5
+          rear_vehicle_reaction_time: 2.5
+          rear_vehicle_safety_time_margin: 0.8
           lateral_distance_max_threshold: 2.0
-          longitudinal_distance_min_threshold: 3.0
-          longitudinal_velocity_delta_time: 0.8
+          longitudinal_distance_min_threshold: 6.0
+          longitudinal_velocity_delta_time: 0.0
+        parked:
+          expected_front_deceleration: -1.0
+          expected_rear_deceleration: -2.0
+          rear_vehicle_reaction_time: 1.0
+          rear_vehicle_safety_time_margin: 0.8
+          lateral_distance_max_threshold: 1.0
+          longitudinal_distance_min_threshold: 6.0
+          longitudinal_velocity_delta_time: 0.0
         cancel:
           expected_front_deceleration: -1.0
           expected_rear_deceleration: -2.5
@@ -46,15 +58,15 @@
           rear_vehicle_safety_time_margin: 0.5
           lateral_distance_max_threshold: 0.75
           longitudinal_distance_min_threshold: 2.0
-          longitudinal_velocity_delta_time: 0.3
+          longitudinal_velocity_delta_time: 0.0
         stuck:
           expected_front_deceleration: -1.0
-          expected_rear_deceleration: -2.0
-          rear_vehicle_reaction_time: 1.5
-          rear_vehicle_safety_time_margin: 0.8
-          lateral_distance_max_threshold: 1.0
-          longitudinal_distance_min_threshold: 2.5
-          longitudinal_velocity_delta_time: 0.6
+          expected_rear_deceleration: -1.0
+          rear_vehicle_reaction_time: 2.0
+          rear_vehicle_safety_time_margin: 1.0
+          lateral_distance_max_threshold: 2.0
+          longitudinal_distance_min_threshold: 6.0
+          longitudinal_velocity_delta_time: 0.0
 
         # lane expansion for object filtering
         lane_expansion:
@@ -109,7 +121,9 @@
         overhang_tolerance: 0.0             # [m]
         unsafe_hysteresis_threshold: 5      # [/]
 
-      finish_judge_lateral_threshold: 0.2        # [m]
+      lane_change_finish_judge_buffer: 2.0      # [m]
+      finish_judge_lateral_threshold: 0.1        # [m]
+      finish_judge_lateral_angle_deviation: 1.0 # [deg]
 
       # debug
       publish_debug_marker: true
