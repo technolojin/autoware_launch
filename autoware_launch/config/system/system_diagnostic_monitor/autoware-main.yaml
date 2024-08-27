@@ -6,7 +6,7 @@ files:
   - { path: $(dirname)/perception.yaml }
   - { path: $(dirname)/planning.yaml }
   - { path: $(dirname)/others.yaml }
-  # - { path: $(dirname)/sensing.yaml }
+  - { path: $(dirname)/sensing.yaml }
   - { path: $(dirname)/system.yaml }
   - { path: $(dirname)/vehicle.yaml }
 
