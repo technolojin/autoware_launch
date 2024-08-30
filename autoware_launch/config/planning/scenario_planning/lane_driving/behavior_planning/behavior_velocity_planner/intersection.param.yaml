@@ -77,7 +77,7 @@
           collision_end_margin_time: 2.0
         yield_on_green_traffic_light:
           distance_to_assigned_lanelet_start: 10.0
-          duration: 3.0
+          duration: 8.0
           object_dist_to_stopline: 10.0
         ignore_on_amber_traffic_light:
           object_expected_deceleration:
@@ -89,7 +89,7 @@
           object_time_margin_to_collision_point: 4.0
 
       occlusion:
-        enable: true
+        enable: false
         occlusion_attention_area_length: 70.0
         free_space_max: 43
         occupied_min: 58
@@ -112,11 +112,12 @@
       debug:
         ttc: [0]
 
+
       enable_rtc:
         intersection: false
         intersection_to_occlusion: false
 
     merge_from_private:
-      stopline_margin: 3.0
-      stop_duration_sec: 1.0
+      stopline_margin: 1.7
+      stop_duration_sec: 1.5
       stop_distance_threshold: 1.0
