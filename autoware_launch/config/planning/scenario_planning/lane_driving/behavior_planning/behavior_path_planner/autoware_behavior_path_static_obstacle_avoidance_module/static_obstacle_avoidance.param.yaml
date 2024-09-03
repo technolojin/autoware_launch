@@ -251,7 +251,7 @@
 
       # For stop maneuver
       stop:
-        max_distance: 20.0                              # [m]
+        max_distance: 30.0                              # [m]
         stop_buffer: 1.0                                # [m] FOR DEVELOPER
 
       policy:
