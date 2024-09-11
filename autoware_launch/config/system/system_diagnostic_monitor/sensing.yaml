@@ -126,7 +126,6 @@ units:
     type: diag
     node: imu_monitor
     name: yaw_rate_status
-    type: diag
     timeout: 5.0
   - path: /sensing/imu/002-connection
     type: diag
