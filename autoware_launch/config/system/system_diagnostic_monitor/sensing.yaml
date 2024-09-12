@@ -29,13 +29,13 @@ units:
       - { type: link, link: /sensing/lidar/pndr/002-temperature-error }
       - { type: link, link: /sensing/lidar/pndr/003-ptp }
       - { type: link, link: /sensing/camera/001-connection }
-      - { type: link, link: /sensing/radar/001-connection }
+      # - { type: link, link: /sensing/radar/001-connection }
 
   - path: /sensing/pull_over
     type: and
     list:
       - { type: link, link: /sensing/lidar/pndr/002-temperature }
-      - { type: link, link: /sensing/gnss/001-connection-error }
+      # - { type: link, link: /sensing/gnss/001-connection-error }
 
   - path: /sensing/comfortable_stop
     type: and
@@ -126,7 +126,6 @@ units:
     type: diag
     node: imu_monitor
     name: yaw_rate_status
-    type: diag
     timeout: 5.0
   - path: /sensing/imu/002-connection
     type: diag
