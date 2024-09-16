@@ -59,7 +59,15 @@
     <arg name="use_low_height_cropbox" value="true"/>
     <arg name="use_roi_based_cluster" value="false"/>
     <arg name="use_detection_by_tracker" value="true"/>
-    <arg name="image_number" value="7"/>
+    <arg name="image_number" value="6"/>
+    <arg name="image_raw0" value="/sensing/camera/camera0/image_raw"/>
+    <arg name="image_raw1" value="/sensing/camera/camera1/image_raw"/>
+    <arg name="image_raw2" value="/sensing/camera/camera2/image_raw"/>
+    <arg name="image_raw3" value="/sensing/camera/camera3/image_raw"/>
+    <arg name="image_raw4" value="/sensing/camera/camera4/image_raw"/>
+    <arg name="image_raw5" value="/sensing/camera/camera5/image_raw"/>
+    <arg name="image_raw6" value="/sensing/camera/camera6/image_raw"/>
+    <arg name="image_raw7" value="/sensing/camera/camera7/image_raw"/>
 
     <!-- object recognition -->
     <arg
