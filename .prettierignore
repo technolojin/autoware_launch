@@ -1,2 +1,4 @@
 *.param.yaml
 *.rviz
+autoware-main.yaml
+autoware-psim.yaml
