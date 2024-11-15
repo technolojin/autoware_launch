@@ -24,6 +24,7 @@
   <arg name="fine_detector_param_path" default="$(find-pkg-share traffic_light_fine_detector)/config/traffic_light_fine_detector.param.yaml"/>
   <arg name="car_classifier_param_path" default="$(find-pkg-share traffic_light_classifier)/config/car_traffic_light_classifier.param.yaml"/>
   <arg name="pedestrian_classifier_param_path" default="$(find-pkg-share traffic_light_classifier)/config/pedestrian_traffic_light_classifier.param.yaml"/>
+  <arg name="traffic_light_multi_camera_fusion_param_path" description="parameter path for traffic_light_multi_camera_fusion"/>
 
   <!--  namespace1 camera TLR pipeline -->
   <group if="$(eval '$(var image_number) >= 1')">
@@ -252,8 +253,7 @@
   <!-- traffic_light_multi_camera_fusion -->
   <group>
     <node pkg="traffic_light_multi_camera_fusion" exec="traffic_light_multi_camera_fusion_node" name="traffic_light_multi_camera_fusion" output="screen">
-      <param name="camera_namespaces" value="$(var camera_namespaces)"/>
-      <param name="perform_group_fusion" value="true"/>
+      <param from="$(var traffic_light_multi_camera_fusion_param_path)"/>
       <remap from="~/input/vector_map" to="/map/vector_map"/>
       <remap from="~/output/traffic_signals" to="$(var internal/traffic_signals)"/>
     </node>
