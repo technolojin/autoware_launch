@@ -33,11 +33,12 @@ units:
       - { type: link, link: /hardware/memory/002-ecc-error }
       - { type: link, link: /hardware/network/003-crc-error }
       - { type: link, link: /hardware/network/004-packet_reassembles-error }
-      - { type: link, link: /hardware/gpu/001-temperature-error }
-      - { type: link, link: /hardware/gpu/002-usage-error }
-      - { type: link, link: /hardware/gpu/003-memory-error }
-      - { type: link, link: /hardware/gpu/004-throttling-error }
-      - { type: link, link: /hardware/gpu/005-frequency-error }
+      # Temporary comment out until gpu diag is restored
+      # - { type: link, link: /hardware/gpu/001-temperature-error }
+      # - { type: link, link: /hardware/gpu/002-usage-error }
+      # - { type: link, link: /hardware/gpu/003-memory-error }
+      # - { type: link, link: /hardware/gpu/004-throttling-error }
+      # - { type: link, link: /hardware/gpu/005-frequency-error }
 
   - path: /hardware/pull_over
     type: and
