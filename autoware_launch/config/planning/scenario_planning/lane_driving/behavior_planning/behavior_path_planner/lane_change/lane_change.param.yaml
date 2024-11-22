@@ -36,7 +36,7 @@
         allow_loose_check_for_cancel: true
         collision_check_yaw_diff_threshold: 3.1416
         execution:
-          expected_front_deceleration: -1.0
+          expected_front_deceleration: -1.5
           expected_rear_deceleration: -1.5
           rear_vehicle_reaction_time: 2.5
           rear_vehicle_safety_time_margin: 0.8
