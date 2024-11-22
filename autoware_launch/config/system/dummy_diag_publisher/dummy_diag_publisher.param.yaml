@@ -176,6 +176,9 @@
       ## /vehicle/006-vehicle_errors
       "j6_interface: vehicle_errors": default
 
+      ## /vehicle/007-vehicle-emergency-button
+      "j6_interface: vehicle_emergency_button": default
+
       # others
       ## /others/002-blockage_validation/front_lower
       "blockage_return_diag: /sensing/lidar/front_lower: blockage_validation": default
