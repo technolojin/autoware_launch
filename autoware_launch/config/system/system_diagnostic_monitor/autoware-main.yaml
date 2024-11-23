@@ -33,6 +33,7 @@ units:
       - { type: link, link: /sensing/autonomous_available }
       - { type: link, link: /system/autonomous_available }
       - { type: link, link: /vehicle/autonomous_available }
+      - { type: link, link: /autoware/fatal_error/autonomous_available }
 
   - path: /autoware/modes/pull_over
     type: and
@@ -47,6 +48,7 @@ units:
       - { type: link, link: /sensing/pull_over_available }
       - { type: link, link: /system/pull_over_available }
       - { type: link, link: /vehicle/pull_over_available }
+      - { type: link, link: /autoware/fatal_error/pull_over_available }
 
   - path: /autoware/modes/comfortable_stop
     type: and
@@ -61,6 +63,37 @@ units:
       - { type: link, link: /sensing/comfortable_stop_available }
       - { type: link, link: /system/comfortable_stop_available }
       - { type: link, link: /vehicle/comfortable_stop_available }
+      - { type: link, link: /autoware/fatal_error/comfortable_stop_available }
+
+  - path: /autoware/fatal_error/autonomous_available
+    type: and
+    list:
+      - { type: link, link: /hardware/fatal_error/autonomous_available }
+      - { type: link, link: /planning/fatal_error/autonomous_available }
+      - { type: link, link: /control/fatal_error/autonomous_available }
+      - { type: link, link: /vehicle/fatal_error/autonomous_available }
+      - { type: link, link: /system/fatal_error/autonomous_available }
+      - { type: link, link: /others/fatal_error/autonomous_available }
+
+  - path: /autoware/fatal_error/pull_over_available
+    type: and
+    list:
+      - { type: link, link: /hardware/fatal_error/pull_over_available }
+      - { type: link, link: /planning/fatal_error/pull_over_available }
+      - { type: link, link: /control/fatal_error/pull_over_available }
+      - { type: link, link: /vehicle/fatal_error/pull_over_available }
+      - { type: link, link: /system/fatal_error/pull_over_available }
+      - { type: link, link: /others/fatal_error/pull_over_available }
+
+  - path: /autoware/fatal_error/comfortable_stop_available
+    type: and
+    list:
+      - { type: link, link: /hardware/fatal_error/comfortable_stop_available }
+      - { type: link, link: /planning/fatal_error/comfortable_stop_available }
+      - { type: link, link: /control/fatal_error/comfortable_stop_available }
+      - { type: link, link: /vehicle/fatal_error/comfortable_stop_available }
+      - { type: link, link: /system/fatal_error/comfortable_stop_available }
+      - { type: link, link: /others/fatal_error/comfortable_stop_available }
 
   - path: /autoware/modes/emergency_stop
     type: ok

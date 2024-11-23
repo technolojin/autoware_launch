@@ -17,6 +17,24 @@ units:
     list:
       - { type: link, link: /hardware/emergency_stop }
 
+  - path: /hardware/fatal_error/autonomous_available
+    type: and
+    list:
+      - { type: link, link: /hardware/fatal_error/emergency_stop }
+      - { type: link, link: /hardware/fatal_error/pull_over }
+      - { type: link, link: /hardware/fatal_error/comfortable_stop }
+
+  - path: /hardware/fatal_error/pull_over_available
+    type: and
+    list:
+      - { type: link, link: /hardware/fatal_error/emergency_stop }
+      - { type: link, link: /hardware/fatal_error/comfortable_stop }
+
+  - path: /hardware/fatal_error/comfortable_stop_available
+    type: and
+    list:
+      - { type: link, link: /hardware/fatal_error/emergency_stop }
+
   # *******************************************************************************
   # NOTE: Please modify this section according to your environment and requirements.
   # *******************************************************************************
@@ -40,12 +58,21 @@ units:
       # - { type: link, link: /hardware/gpu/004-throttling-error }
       # - { type: link, link: /hardware/gpu/005-frequency-error }
 
+  - path: /hardware/fatal_error/emergency_stop
+    type: and
+
   - path: /hardware/pull_over
     type: and
     list:
       - { type: link, link: /hardware/hdd/002-usage-error }
 
+  - path: /hardware/fatal_error/pull_over
+    type: and
+
   - path: /hardware/comfortable_stop
+    type: and
+
+  - path: /hardware/fatal_error/comfortable_stop
     type: and
 
   - path: /hardware/none

@@ -17,6 +17,24 @@ units:
     list:
       - { type: link, link: /others/emergency_stop }
 
+  - path: /others/fatal_error/autonomous_available
+    type: and
+    list:
+      - { type: link, link: /others/fatal_error/emergency_stop }
+      - { type: link, link: /others/fatal_error/pull_over }
+      - { type: link, link: /others/fatal_error/comfortable_stop }
+
+  - path: /others/fatal_error/pull_over_available
+    type: and
+    list:
+      - { type: link, link: /others/fatal_error/emergency_stop }
+      - { type: link, link: /others/fatal_error/comfortable_stop }
+
+  - path: /others/fatal_error/comfortable_stop_available
+    type: and
+    list:
+      - { type: link, link: /others/fatal_error/emergency_stop }
+
   # *******************************************************************************
   # NOTE: Please modify this section according to your environment and requirements.
   # *******************************************************************************
@@ -28,15 +46,24 @@ units:
       # - { type: link, link: /others/005-visibility_validation-error }
       # - { type: link, link: /others/012-vehicle_stuck_checker }
 
+  - path: /others/fatal_error/emergency_stop
+    type: and
+
   - path: /others/comfortable_stop
     type: and
     # list:
     # - { type: link, link: /others/010-emergency_vehicle-error }
 
+  - path: /others/fatal_error/comfortable_stop
+    type: and
+
   - path: /others/pull_over
     type: and
     list:
       - { type: link, link: /others/011-daytime_monitor }
+
+  - path: /others/fatal_error/pull_over
+    type: and
 
   - path: /others/none
     type: and

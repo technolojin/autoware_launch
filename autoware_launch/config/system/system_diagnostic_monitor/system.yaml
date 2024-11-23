@@ -17,6 +17,24 @@ units:
     list:
       - { type: link, link: /system/emergency_stop }
 
+  - path: /system/fatal_error/autonomous_available
+    type: and
+    list:
+      - { type: link, link: /system/fatal_error/emergency_stop }
+      - { type: link, link: /system/fatal_error/pull_over }
+      - { type: link, link: /system/fatal_error/comfortable_stop }
+
+  - path: /system/fatal_error/pull_over_available
+    type: and
+    list:
+      - { type: link, link: /system/fatal_error/emergency_stop }
+      - { type: link, link: /system/fatal_error/comfortable_stop }
+
+  - path: /system/fatal_error/comfortable_stop_available
+    type: and
+    list:
+      - { type: link, link: /system/fatal_error/emergency_stop }
+
   # *******************************************************************************
   # NOTE: Please modify this section according to your environment and requirements.
   # *******************************************************************************
@@ -26,13 +44,22 @@ units:
       - { type: link, link: /system/001-topic_status-error }
       - { type: link, link: /system/002-emergency_stop_operation-error }
 
+  - path: /system/fatal_error/emergency_stop
+    type: and
+
   - path: /system/comfortable_stop
+    type: and
+
+  - path: /system/fatal_error/comfortable_stop
     type: and
 
   - path: /system/pull_over
     type: and
     list:
       - { type: link, link: /system/005-fms_connection-error }
+
+  - path: /system/fatal_error/pull_over
+    type: and
 
   - path: /system/none
     type: and
