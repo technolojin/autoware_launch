@@ -169,6 +169,7 @@
       VEHICLE-001-2: "topic_state_monitor_vehicle_status_steering_status: vehicle_topic_status"
       VEHICLE-005: "j6_interface: vehicle_heartbeat_errors"
       VEHICLE-006: "j6_interface: vehicle_errors"
+      VEHICLE-007: "j6_interface: vehicle_emergency_button"
 
       # System
       SYSTEM-001: "topic_state_monitor_system_emergency_control_cmd: system_topic_status"
