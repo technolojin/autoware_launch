@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /System1/Vehicle1
         - /Map1/Lanelet2VectorMap1
+        - /Map1/Lanelet2VectorMap1/Topic1
         - /Map1/Lanelet2VectorMap1/Namespaces1
         - /Sensing1/LiDAR1/ConcatenatePointCloud1/Autocompute Value Bounds1
         - /Perception1/Segmentation1/NoGroundPointCloud1
@@ -65,7 +66,7 @@ Panels:
     Name: LoggingLevelConfigureRvizPlugin
   - Class: rviz_plugins::RTCManagerPanel
     Name: RTCManagerPanel
-  - Class: rviz_plugins/AutowareScreenCapturePanel
+  - Class: AutowareScreenCapturePanel
     Name: AutowareScreenCapturePanel
 Visualization Manager:
   Class: ""
@@ -124,6 +125,236 @@ Visualization Manager:
                 Expand Link Details: false
                 Expand Tree: false
                 Link Tree Style: Links in Alphabetic Order
+                base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                front_center/radar_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                front_left/radar_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                front_lower/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                front_lower/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                front_right/radar_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                front_upper/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                front_upper/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                left_center/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                left_center/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                left_front/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                left_front/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                left_lower/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                left_lower/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                left_rear/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                left_rear/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                left_upper/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                left_upper/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                rear_center/radar_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                rear_left/radar_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                rear_lower/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                rear_lower/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                rear_right/radar_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                rear_upper/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                rear_upper/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                right_center/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                right_center/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                right_front/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                right_front/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                right_lower/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                right_lower/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                right_rear/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                right_rear/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                right_upper/lidar:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                right_upper/lidar_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                sensor_kit_base_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                top_front/gnss_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_front_center_left/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_front_center_left/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                top_front_center_right/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_front_center_right/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                top_front_left/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_front_left/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                top_front_left/imu_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_front_right/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_front_right/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                top_front_right/imu_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_rear/gnss_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_rear_center/camera_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
+                  Value: true
+                top_rear_center/camera_optical_link:
+                  Alpha: 1
+                  Show Axes: false
+                  Show Trail: false
               Mass Properties:
                 Inertia: false
                 Mass: false
@@ -222,7 +453,27 @@ Visualization Manager:
           Enabled: true
           Name: Lanelet2VectorMap
           Namespaces:
-            {}
+            "": true
+            center_lane_line: true
+            center_line_arrows: true
+            crosswalk_areas: true
+            crosswalk_lanelet_id: true
+            crosswalk_lanelets: false
+            curbstone: true
+            intersection_area: true
+            lane_start_bound: true
+            lanelet direction: true
+            lanelet_id: true
+            left_lane_bound: true
+            right_lane_bound: true
+            road_lanelets: false
+            shoulder_center_lane_line: true
+            shoulder_center_line_arrows: true
+            shoulder_lane_start_bound: true
+            shoulder_left_lane_bound: true
+            shoulder_right_lane_bound: true
+            shoulder_road_lanelets: true
+            stop_lines: true
           Topic:
             Depth: 5
             Durability Policy: Transient Local
@@ -714,7 +965,15 @@ Visualization Manager:
                     Color: 119; 11; 32
                   Name: PredictedObjects
                   Namespaces:
-                    {}
+                    acceleration: true
+                    label: true
+                    path: true
+                    path confidence: true
+                    position covariance: true
+                    shape: true
+                    twist: true
+                    uuid: true
+                    velocity: true
                   Object Fill Type: skeleton
                   PEDESTRIAN:
                     Alpha: 0.9990000128746033
@@ -1712,7 +1971,8 @@ Visualization Manager:
                       Enabled: true
                       Name: Bound
                       Namespaces:
-                        {}
+                        left_bound: true
+                        right_bound: true
                       Topic:
                         Depth: 5
                         Durability Policy: Volatile
@@ -1994,7 +2254,7 @@ Visualization Manager:
                           Enabled: true
                           Name: Arrow
                           Namespaces:
-                            {}
+                            "": true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2006,7 +2266,10 @@ Visualization Manager:
                           Enabled: true
                           Name: Crosswalk
                           Namespaces:
-                            {}
+                            attention range far: true
+                            attention range near: true
+                            crosswalk polygon: true
+                            vehicle polygon: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2030,7 +2293,7 @@ Visualization Manager:
                           Enabled: true
                           Name: Blind Spot
                           Namespaces:
-                            {}
+                            detection_area: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2126,7 +2389,10 @@ Visualization Manager:
                           Enabled: true
                           Name: StaticObstacleAvoidance
                           Namespaces:
-                            {}
+                            others_out_of_target_area_cube: true
+                            others_out_of_target_area_info: true
+                            others_out_of_target_area_info_reason: true
+                            others_out_of_target_area_overhang_lanelet: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2901,42 +3167,15 @@ Visualization Manager:
                 Debug:
                   Control: true
                   Localization:
-                    EKFPoseHistory: true
-                    NDT pointclouds: true
-                    NDTLoadedPCDMap: true
-                    NDTPoseHistory: true
+                    "": true
                     Value: true
                   Map: true
                   Perception:
-                    CameraLidarFusion(purple): true
-                    Centerpoint(red1): true
-                    CenterpointROIFusion(red2): true
-                    CenterpointValidator(red3): true
-                    Detection(yellow): true
-                    DetectionByTracker(orange): true
-                    PointPainting(light_green1): true
-                    PointPaintingROIFusion(light_green2): true
-                    PointPaintingValidator(light_green3): true
-                    Prediction(light_blue): true
-                    RadarFarObjects(white): true
-                    Tracking(green): true
+                    "": true
                     Value: true
                   Planning:
-                    Objects Of Interest:
-                      AvoidanceByLCLeft: true
-                      AvoidanceByLCRight: true
-                      AvoidanceLeft: true
-                      AvoidanceRight: true
-                      BlindSpot: true
-                      Crosswalk: true
-                      DetectionArea: true
-                      GoalPlanner: true
-                      Intersection: true
-                      LaneChangeLeft: true
-                      LaneChangeRight: true
-                      NoStoppingArea: true
-                      StartPlanner: true
-                      TrafficLight: true
+                    "":
+                      "": true
                       Value: true
                     Value: true
                   Sensing:
@@ -4055,7 +4294,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 0; 0; 0
-    Fixed Frame: viewer
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:

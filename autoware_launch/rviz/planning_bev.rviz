@@ -39,7 +39,6 @@ Panels:
         - /Debug1/Perception1/RadarFarObjects(white)1/UNKNOWN1
         - /Debug1/Perception1/Detection(yellow)1/UNKNOWN1
         - /Debug1/Planning1
-        - /MrmSummaryOverlayDisplay1
       Splitter Ratio: 0.7641357183456421
     Tree Height: 451
   - Class: rviz_common/Selection
@@ -66,7 +65,7 @@ Panels:
     Name: LoggingLevelConfigureRvizPlugin
   - Class: rviz_plugins::RTCManagerPanel
     Name: RTCManagerPanel
-  - Class: rviz_plugins/AutowareScreenCapturePanel
+  - Class: AutowareScreenCapturePanel
     Name: AutowareScreenCapturePanel
 Visualization Manager:
   Class: ""
@@ -223,7 +222,27 @@ Visualization Manager:
           Enabled: true
           Name: Lanelet2VectorMap
           Namespaces:
-            {}
+            "": true
+            center_lane_line: true
+            center_line_arrows: true
+            crosswalk_areas: true
+            crosswalk_lanelet_id: true
+            crosswalk_lanelets: true
+            curbstone: true
+            intersection_area: true
+            lane_start_bound: true
+            lanelet direction: true
+            lanelet_id: true
+            left_lane_bound: true
+            right_lane_bound: true
+            road_lanelets: false
+            shoulder_center_lane_line: true
+            shoulder_center_line_arrows: true
+            shoulder_lane_start_bound: true
+            shoulder_left_lane_bound: true
+            shoulder_right_lane_bound: true
+            shoulder_road_lanelets: true
+            stop_lines: true
           Topic:
             Depth: 5
             Durability Policy: Transient Local
@@ -715,7 +734,15 @@ Visualization Manager:
                     Color: 119; 11; 32
                   Name: PredictedObjects
                   Namespaces:
-                    {}
+                    acceleration: true
+                    label: true
+                    path: true
+                    path confidence: true
+                    position covariance: true
+                    shape: true
+                    twist: true
+                    uuid: true
+                    velocity: true
                   Object Fill Type: skeleton
                   PEDESTRIAN:
                     Alpha: 0.9990000128746033
@@ -1713,7 +1740,8 @@ Visualization Manager:
                       Enabled: true
                       Name: Bound
                       Namespaces:
-                        {}
+                        left_bound: true
+                        right_bound: true
                       Topic:
                         Depth: 5
                         Durability Policy: Volatile
@@ -1995,7 +2023,7 @@ Visualization Manager:
                           Enabled: true
                           Name: Arrow
                           Namespaces:
-                            {}
+                            "": true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2007,7 +2035,10 @@ Visualization Manager:
                           Enabled: true
                           Name: Crosswalk
                           Namespaces:
-                            {}
+                            attention range far: true
+                            attention range near: true
+                            crosswalk polygon: true
+                            vehicle polygon: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2031,7 +2062,7 @@ Visualization Manager:
                           Enabled: true
                           Name: Blind Spot
                           Namespaces:
-                            {}
+                            detection_area: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2127,7 +2158,10 @@ Visualization Manager:
                           Enabled: true
                           Name: StaticObstacleAvoidance
                           Namespaces:
-                            {}
+                            others_out_of_target_area_cube: true
+                            others_out_of_target_area_info: true
+                            others_out_of_target_area_info_reason: true
+                            others_out_of_target_area_overhang_lanelet: true
                           Topic:
                             Depth: 5
                             Durability Policy: Volatile
@@ -2605,7 +2639,7 @@ Visualization Manager:
                               Enabled: true
                               Name: DebugMarker
                               Namespaces:
-                                {}
+                                detection_polygons: true
                               Topic:
                                 Depth: 5
                                 Durability Policy: Volatile
@@ -2906,15 +2940,31 @@ Visualization Manager:
                 Debug:
                   Control: true
                   Localization:
-                    "": true
+                    EKFPoseHistory: true
+                    NDT pointclouds: true
+                    NDTLoadedPCDMap: true
+                    NDTPoseHistory: true
                     Value: true
                   Map: true
                   Perception:
                     "": true
                     Value: true
                   Planning:
-                    "":
-                      "": true
+                    Objects Of Interest:
+                      AvoidanceByLCLeft: true
+                      AvoidanceByLCRight: true
+                      AvoidanceLeft: true
+                      AvoidanceRight: true
+                      BlindSpot: true
+                      Crosswalk: true
+                      DetectionArea: true
+                      GoalPlanner: true
+                      Intersection: true
+                      LaneChangeLeft: true
+                      LaneChangeRight: true
+                      NoStoppingArea: true
+                      StartPlanner: true
+                      TrafficLight: true
                       Value: true
                     Value: true
                   Sensing:
@@ -4198,7 +4248,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 0; 0; 0
-    Fixed Frame: viewer
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
