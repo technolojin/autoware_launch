@@ -92,14 +92,14 @@ units:
   - path: /sensing/lidar/pndr/003-ptp
     type: and
     list:
-      - { type: link, link: /sensing/lidar/front_lower/ptp }
-      - { type: link, link: /sensing/lidar/front_upper/ptp }
-      - { type: link, link: /sensing/lidar/left_lower/ptp }
-      - { type: link, link: /sensing/lidar/left_upper/ptp }
-      - { type: link, link: /sensing/lidar/right_lower/ptp }
-      - { type: link, link: /sensing/lidar/right_upper/ptp }
-      - { type: link, link: /sensing/lidar/rear_lower/ptp }
-      - { type: link, link: /sensing/lidar/rear_upper/ptp }
+      - { type: link, link: /sensing/lidar/front_lower/ptp-error }
+      - { type: link, link: /sensing/lidar/front_upper/ptp-error }
+      - { type: link, link: /sensing/lidar/left_lower/ptp-error }
+      - { type: link, link: /sensing/lidar/left_upper/ptp-error }
+      - { type: link, link: /sensing/lidar/right_lower/ptp-error }
+      - { type: link, link: /sensing/lidar/right_upper/ptp-error }
+      - { type: link, link: /sensing/lidar/rear_lower/ptp-error }
+      - { type: link, link: /sensing/lidar/rear_upper/ptp-error }
 
   - path: /sensing/camera/001-connection
     type: and
@@ -120,6 +120,47 @@ units:
       - { type: link, link: /sensing/radar/rear_center/connection }
       - { type: link, link: /sensing/radar/rear_left/connection }
       - { type: link, link: /sensing/radar/rear_right/connection }
+
+  - path: /sensing/lidar/front_lower/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/front_lower/ptp
+  - path: /sensing/lidar/front_upper/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/front_upper/ptp
+  - path: /sensing/lidar/left_lower/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/left_lower/ptp
+  - path: /sensing/lidar/left_upper/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/left_upper/ptp
+  - path: /sensing/lidar/right_lower/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/right_lower/ptp
+  - path: /sensing/lidar/right_upper/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/right_upper/ptp
+  - path: /sensing/lidar/rear_lower/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/rear_lower/ptp
+  - path: /sensing/lidar/rear_upper/ptp-error
+    type: warn-to-ok
+    item:
+      type: link
+      link: /sensing/lidar/rear_upper/ptp
 
   # Diagnostics paths
   - path: /sensing/imu/001-monitor
