@@ -75,8 +75,9 @@
     <arg name="image_raw3" value="/sensing/camera/camera3/image_raw"/>
     <arg name="image_raw4" value="/sensing/camera/camera4/image_raw"/>
     <arg name="image_raw5" value="/sensing/camera/camera5/image_raw"/>
-    <arg name="image_raw6" value="/sensing/camera/camera6/image_raw"/>
-    <arg name="image_raw7" value="/sensing/camera/camera7/image_raw"/>
+    <arg name="image_raw6" value="/sensing/camera/camera8/image_raw"/>
+    <arg name="image_raw7" value="/sensing/camera/camera9/image_raw"/>
+    <arg name="image_raw8" value="/sensing/camera/camera10/image_raw"/>
 
     <!-- object recognition -->
     <arg
