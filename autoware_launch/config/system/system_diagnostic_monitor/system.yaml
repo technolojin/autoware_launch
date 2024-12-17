@@ -55,8 +55,8 @@ units:
 
   - path: /system/pull_over
     type: and
-    list:
-      - { type: link, link: /system/005-fms_connection-error }
+    # list:
+    #   - { type: link, link: /system/005-fms_connection-error }
 
   - path: /system/fatal_error/pull_over
     type: and
