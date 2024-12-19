@@ -66,6 +66,8 @@ Panels:
     Name: LoggingLevelConfigureRvizPlugin
   - Class: rviz_plugins::RTCManagerPanel
     Name: RTCManagerPanel
+  - Class: rviz_plugins::VelocitySteeringFactorsPanel
+    Name: VelocitySteeringFactorsPanel
   - Class: AutowareScreenCapturePanel
     Name: AutowareScreenCapturePanel
 Visualization Manager:
