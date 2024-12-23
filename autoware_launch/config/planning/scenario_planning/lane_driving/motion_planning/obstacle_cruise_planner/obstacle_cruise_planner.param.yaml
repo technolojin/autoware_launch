@@ -188,7 +188,7 @@
       default:
         moving:
           min_lat_margin: 0.2
-          max_lat_margin: 0.7
+          max_lat_margin: 0.5
           min_ego_velocity: 2.0
           max_ego_velocity: 5.56
         static:
