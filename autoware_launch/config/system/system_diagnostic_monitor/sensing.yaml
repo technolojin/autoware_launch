@@ -110,6 +110,8 @@ units:
       - { type: link, link: /sensing/camera/3/connection }
       - { type: link, link: /sensing/camera/4/connection }
       - { type: link, link: /sensing/camera/5/connection }
+      - { type: link, link: /sensing/camera/6/connection }
+      - { type: link, link: /sensing/camera/7/connection }
 
   - path: /sensing/radar/001-connection
     type: and
@@ -216,6 +218,16 @@ units:
   - path: /sensing/camera/5/connection
     type: diag
     node: v4l2_camera_camera5
+    name: capture_status
+    timeout: 1.0
+  - path: /sensing/camera/6/connection
+    type: diag
+    node: v4l2_camera_camera6
+    name: capture_status
+    timeout: 1.0
+  - path: /sensing/camera/7/connection
+    type: diag
+    node: v4l2_camera_camera7
     name: capture_status
     timeout: 1.0
   - path: /sensing/radar/front_center/connection
