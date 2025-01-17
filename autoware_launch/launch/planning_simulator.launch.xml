@@ -39,7 +39,7 @@
   <!-- Simulated time -->
   <arg name="use_sim_time" default="$(var scenario_simulation)"/>
   <!-- L4 tool kit -->
-  <arg name="daytime_monitor_param_file" default="$(find-pkg-share daytime_monitor)/config/daytime_monitor_psim.param.yaml" />
+  <arg name="daytime_monitor_param_file" default="$(find-pkg-share daytime_monitor)/config/daytime_monitor_psim.param.yaml"/>
 
   <group scoped="false">
     <!-- Vehicle -->

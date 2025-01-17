@@ -53,7 +53,7 @@
   <arg name="enable_all_modules_auto_mode" default="false" description="enable all module's auto mode"/>
   <arg name="is_simulation" default="false" description="Autoware's behavior will change depending on whether this is a simulation or not."/>
   <!-- L4 tool kit-->
-  <arg name="daytime_monitor_param_file" default="$(find-pkg-share daytime_monitor)/config/daytime_monitor.param.yaml" description="daytime_monitor config" />
+  <arg name="daytime_monitor_param_file" default="$(find-pkg-share daytime_monitor)/config/daytime_monitor.param.yaml" description="daytime_monitor config"/>
 
   <!-- Global parameters -->
   <group scoped="false">
