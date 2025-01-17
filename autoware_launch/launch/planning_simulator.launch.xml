@@ -38,6 +38,8 @@
   <arg name="enable_all_modules_auto_mode" default="$(var scenario_simulation)" description="enable all module's auto mode"/>
   <!-- Simulated time -->
   <arg name="use_sim_time" default="$(var scenario_simulation)"/>
+  <!-- L4 tool kit -->
+  <arg name="daytime_monitor_param_file" default="$(find-pkg-share daytime_monitor)/config/daytime_monitor_psim.param.yaml" />
 
   <group scoped="false">
     <!-- Vehicle -->
@@ -75,9 +77,8 @@
       <arg name="is_simulation" value="true"/>
       <!-- V2X -->
       <arg name="launch_v2x" value="false"/>
-      <!-- Auto mode setting-->
-      <arg name="enable_all_modules_auto_mode" value="$(var enable_all_modules_auto_mode)"/>
-      <arg name="is_simulation" value="true"/>
+      <!-- L4 tool kit-->
+      <arg name="daytime_monitor_param_file" value="$(var daytime_monitor_param_file)"/>
     </include>
   </group>
 
