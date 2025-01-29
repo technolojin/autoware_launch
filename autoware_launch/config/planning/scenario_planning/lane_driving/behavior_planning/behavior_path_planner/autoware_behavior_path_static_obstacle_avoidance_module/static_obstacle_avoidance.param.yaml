@@ -234,6 +234,8 @@
           min_prepare_time: 1.0                         # [s]
           max_prepare_time: 2.0                         # [s]
           min_prepare_distance: 4.0                     # [m]
+          max_prepare_time: 3.0                         # [s]
+          min_prepare_distance: 4.0                     # [m]
           min_slow_down_speed: 1.38                     # [m/s]
           buf_slow_down_speed: 0.56                     # [m/s] FOR DEVELOPER
           nominal_avoidance_speed: 8.33                 # [m/s] FOR DEVELOPER

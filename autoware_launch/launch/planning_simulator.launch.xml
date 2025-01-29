@@ -8,6 +8,7 @@
 
   <!-- launch module preset -->
   <arg name="planning_module_preset" default="x2" description="planning module preset"/>
+  <arg name="control_module_preset" default="x2" description="control module preset"/>
 
   <!-- Optional parameters -->
   <!-- Map -->
@@ -40,6 +41,12 @@
   <arg name="use_sim_time" default="$(var scenario_simulation)"/>
   <!-- L4 tool kit -->
   <arg name="daytime_monitor_param_file" default="$(find-pkg-share daytime_monitor)/config/daytime_monitor_psim.param.yaml"/>
+  <!-- Localization-->
+  <arg
+    name="localization_sim_mode"
+    default="api"
+    description="Select localization mode. Options are 'none', 'api' or 'pose_twist_estimator'. 'pose_twist_estimator' starts most of the localization modules except for the ndt_scan_matcher. 'api' starts an external API for initial position estimation. 'none' does not start any localization-related process."
+  />
 
   <group scoped="false">
     <!-- Vehicle -->
@@ -54,6 +61,7 @@
       <arg name="data_path" value="$(var data_path)"/>
       <!-- launch module preset -->
       <arg name="planning_module_preset" value="$(var planning_module_preset)"/>
+      <arg name="control_module_preset" value="$(var control_module_preset)"/>
       <!-- Modules to be launched -->
       <arg name="launch_sensing" value="false"/>
       <arg name="launch_localization" value="false"/>
@@ -64,7 +72,7 @@
       <arg name="system_run_mode" value="planning_simulation"/>
       <arg name="launch_system_monitor" value="$(var launch_system_monitor)"/>
       <arg name="launch_dummy_diag_publisher" value="$(var launch_dummy_diag_publisher)"/>
-      <arg name="diagnostic_graph_aggregator_graph_path" value="$(find-pkg-share autoware_launch)/config/system/diagnostic_graph_aggregator/autoware-main.yaml"/>
+      <arg name="diagnostic_graph_aggregator_graph_path" value="$(find-pkg-share autoware_launch)/config/system/tier4_diagnostics/autoware-main.yaml"/>
       <!-- Map -->
       <arg name="lanelet2_map_file" value="$(var lanelet2_map_file)"/>
       <arg name="pointcloud_map_file" value="$(var pointcloud_map_file)"/>
@@ -88,15 +96,14 @@
     <let name="launch_dummy_perception" value="true" unless="$(var scenario_simulation)"/>
     <let name="launch_dummy_vehicle" value="false" if="$(var scenario_simulation)"/>
     <let name="launch_dummy_vehicle" value="true" unless="$(var scenario_simulation)"/>
-    <let name="launch_dummy_localization" value="true"/>
-    <let name="launch_diagnostic_converter" value="$(var scenario_simulation)"/>
+    <let name="launch_scenario_simulator_v2_adapter" value="$(var scenario_simulation)"/>
 
     <include file="$(find-pkg-share autoware_launch)/launch/components/tier4_simulator_component.launch.xml">
       <arg name="launch_dummy_perception" value="$(var launch_dummy_perception)"/>
       <arg name="launch_dummy_vehicle" value="$(var launch_dummy_vehicle)"/>
-      <arg name="launch_dummy_localization" value="$(var launch_dummy_localization)"/>
+      <arg name="localization_sim_mode" value="$(var localization_sim_mode)"/>
       <arg name="launch_dummy_doors" value="$(var launch_dummy_doors)"/>
-      <arg name="launch_diagnostic_converter" value="$(var launch_diagnostic_converter)"/>
+      <arg name="launch_scenario_simulator_v2_adapter" value="$(var launch_scenario_simulator_v2_adapter)"/>
       <arg name="perception/enable_detection_failure" value="$(var perception/enable_detection_failure)"/>
       <arg name="perception/enable_object_recognition" value="$(var perception/enable_object_recognition)"/>
       <arg name="perception/use_base_link_z" value="$(var perception/use_base_link_z)"/>
@@ -104,6 +111,7 @@
       <arg name="vehicle_model" value="$(var vehicle_model)"/>
       <arg name="initial_engage_state" value="$(var initial_engage_state)"/>
       <arg name="vehicle_info_param_file" value="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
+      <arg name="raw_vehicle_cmd_converter_param_path" value="$(find-pkg-share autoware_launch)/config/vehicle/raw_vehicle_cmd_converter/raw_vehicle_cmd_converter.param.yaml"/>
     </include>
   </group>
 </launch>
