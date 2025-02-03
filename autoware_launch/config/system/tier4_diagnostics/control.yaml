@@ -17,6 +17,24 @@ units:
     list:
       - { type: link, link: /control/emergency_stop }
 
+  - path: /control/fatal_error/autonomous_available
+    type: and
+    list:
+      - { type: link, link: /control/fatal_error/emergency_stop }
+      - { type: link, link: /control/fatal_error/pull_over }
+      - { type: link, link: /control/fatal_error/comfortable_stop }
+
+  - path: /control/fatal_error/pull_over_available
+    type: and
+    list:
+      - { type: link, link: /control/fatal_error/emergency_stop }
+      - { type: link, link: /control/fatal_error/comfortable_stop }
+
+  - path: /control/fatal_error/comfortable_stop_available
+    type: and
+    list:
+      - { type: link, link: /control/fatal_error/emergency_stop }
+
   # *******************************************************************************
   # NOTE: Please modify this section according to your environment and requirements.
   # *******************************************************************************
@@ -26,15 +44,23 @@ units:
       - { type: link, link: /control/001-topic_status/control_command-error }
       - { type: link, link: /control/004-lane_departure-error }
       - { type: link, link: /control/005-trajectory_deviation-error }
-      - { type: link, link: /control/009-aeb_emergency_stop }
+      # - { type: link, link: /control/009-aeb_emergency_stop }
       # - { type: link, link: /control/010-max_distance_deviation-error }
-      # - { type: link, link: /control/011-slip_detection }
-      - { type: link, link: /control/collision_detector }
+      - { type: link, link: /control/011-slip_detection }
+
+  - path: /control/fatal_error/emergency_stop
+    type: and
 
   - path: /control/comfortable_stop
     type: and
 
+  - path: /control/fatal_error/comfortable_stop
+    type: and
+
   - path: /control/pull_over
+    type: and
+
+  - path: /control/fatal_error/pull_over
     type: and
 
   - path: /control/none
@@ -105,11 +131,11 @@ units:
     name: heartbeat
     timeout: 1.0
 
-  - path: /control/009-aeb_emergency_stop
-    type: diag
-    node: autonomous_emergency_braking
-    name: aeb_emergency_stop
-    timeout: 1.0
+  # - path: /control/009-aeb_emergency_stop
+  #   type: diag
+  #   node: autonomous_emergency_braking
+  #   name: aeb_emergency_stop
+  #   timeout: 1.0
 
   - path: /control/010-max_distance_deviation
     type: diag
@@ -122,8 +148,3 @@ units:
     node: slip_detector
     name: slip_status
     timeout: 3.0
-
-  - path: /control/collision_detector
-    type: diag
-    node: collision_detector
-    name: collision_detect
