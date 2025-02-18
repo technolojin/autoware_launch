@@ -38,69 +38,6 @@
     </include>
   </group>
 
-  <!-- Sensing -->
-  <group if="$(var launch_sensing)">
-    <push-ros-namespace namespace="sensing"/>
-    <!-- IMU Driver -->
-    <include file="$(find-pkg-share aip_x2_gen2_launch)/launch/imu.launch.xml"/>
-
-    <!-- Vehicle twist -->
-    <include file="$(find-pkg-share autoware_vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
-      <arg name="input_vehicle_velocity_topic" value="/vehicle/status/velocity_status"/>
-      <arg name="output_twist_with_covariance" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/>
-      <arg name="config_file" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/aip_x2_gen2/vehicle_velocity_converter.param.yaml"/>
-    </include>
-  </group>
-
-  <!-- Localization -->
-  <group if="$(var launch_localization)">
-    <!-- Localization args-->
-    <let name="loc_config_path" value="$(find-pkg-share autoware_launch)/config/localization"/>
-    <arg name="ekf_localizer_param_path" default="$(var loc_config_path)/ekf_localizer.param.yaml"/>
-
-    <!-- gyro odometer -->
-    <group>
-      <include file="$(find-pkg-share tier4_localization_launch)/launch/pose_twist_estimator/gyro_odometer.launch.xml"/>
-    </group>
-
-    <!-- ekf localizer -->
-    <group>
-      <include file="$(find-pkg-share autoware_ekf_localizer)/launch/ekf_localizer.launch.xml">
-        <arg name="input_initial_pose_name" value="/main/initialpose3d"/>
-        <arg name="input_pose_with_cov_name" value="/main/localization/pose_with_covariance"/>
-        <arg name="input_twist_with_cov_name" value="/localization/twist_estimator/twist_with_covariance"/>
-        <arg name="output_odom_name" value="/localization/pose_twist_fusion_filter/kinematic_state"/>
-        <arg name="output_pose_name" value="/localization/pose_twist_fusion_filter/pose"/>
-        <arg name="output_pose_with_covariance_name" value="/localization/pose_with_covariance"/>
-        <arg name="output_biased_pose_name" value="/localization/pose_twist_fusion_filter/biased_pose"/>
-        <arg name="output_biased_pose_with_covariance_name" value="/localization/pose_twist_fusion_filter/biased_pose_with_covariance"/>
-        <arg name="output_twist_name" value="/localization/pose_twist_fusion_filter/twist"/>
-        <arg name="output_twist_with_covariance_name" value="/localization/pose_twist_fusion_filter/twist_with_covariance"/>
-        <arg name="param_file" value="$(var ekf_localizer_param_path)"/>
-      </include>
-    </group>
-
-    <!-- stop filter -->
-    <group>
-      <include file="$(find-pkg-share autoware_stop_filter)/launch/stop_filter.launch.xml">
-        <arg name="use_twist_with_covariance" value="True"/>
-        <arg name="input_odom_name" value="/localization/pose_twist_fusion_filter/kinematic_state"/>
-        <arg name="input_twist_with_covariance_name" value="/localization/pose_twist_fusion_filter/twist_with_covariance"/>
-        <arg name="output_odom_name" value="/localization/kinematic_state"/>
-      </include>
-    </group>
-
-    <!-- twist2accel -->
-    <group>
-      <include file="$(find-pkg-share autoware_twist2accel)/launch/twist2accel.launch.xml">
-        <arg name="use_odom" value="true"/>
-        <arg name="in_odom" value="/localization/kinematic_state"/>
-        <arg name="in_twist" value="/localization/twist_estimator/twist_with_covariance"/>
-        <arg name="out_accel" value="/localization/acceleration"/>
-      </include>
-    </group>
-  </group>
-
   <!-- Planning -->
   <group if="$(var launch_planning)">
     <!--- preset -->
@@ -171,7 +108,6 @@
       name="lon_controller_param_path"
       default="$(find-pkg-share autoware_launch)/config/control/trajectory_follower/$(var latlon_controller_param_path_dir)/longitudinal/$(var longitudinal_controller_mode).redundancy.sub.param.yaml"
     />
-    <log message="$(var lon_controller_param_path)"/>
     <arg name="vehicle_info_param_path" default="$(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml"/>
 
     <!-- trajectory follower -->
@@ -190,65 +126,16 @@
         <remap from="~/input/current_odometry" to="/localization/kinematic_state"/>
         <remap from="~/input/current_accel" to="/localization/acceleration"/>
         <remap from="~/input/current_operation_mode" to="/system/operation_mode/state"/>
-        <remap from="~/output/predicted_trajectory" to="/control/trajectory_follower/lateral/predicted_trajectory"/>
-        <remap from="~/output/lateral_diagnostic" to="/control/trajectory_follower/lateral/diagnostic"/>
-        <remap from="~/output/slope_angle" to="/control/trajectory_follower/longitudinal/slope_angle"/>
-        <remap from="~/output/longitudinal_diagnostic" to="/control/trajectory_follower/longitudinal/diagnostic"/>
-        <remap from="~/output/stop_reason" to="/control/trajectory_follower/longitudinal/stop_reason"/>
         <remap from="~/output/control_cmd" to="/control/command/control_cmd"/>
       </composable_node>
       <composable_node pkg="glog_component" plugin="GlogComponent" name="glog_component" namespace=""/>
     </node_container>
-
-    <!-- dummy gear cmd publisher -->
-    <group>
-      <include file="$(find-pkg-share dummy_gear_cmd_publisher)/launch/dummy_gear_cmd_publisher.launch.xml"/>
-    </group>
-  </group>
-
-  <!-- Vehicle -->
-  <group if="$(var launch_vehicle)">
-    <!-- Vehicle args -->
-    <let name="vehicle_launch_pkg" value="$(find-pkg-share $(var vehicle_model)_launch)"/>
-    <arg name="raw_vehicle_cmd_converter_param_path" default="$(find-pkg-share autoware_raw_vehicle_cmd_converter)/config/raw_vehicle_cmd_converter.param.yaml"/>
-    <arg name="initial_engage_state" default="false" description="/vehicle/engage state after starting Autoware"/>
-    <arg name="config_dir" default="$(find-pkg-share $(var sensor_model)_description)/config" description="path to dir where sensors_calibration.yaml, etc. are located"/>
-
-    <arg name="can_device" default="fintekcan0"/>
-    <arg name="brake_can_device" default="peakcan1"/>
-
-    <!-- vehicle description -->
-    <group>
-      <arg name="model_file" default="$(find-pkg-share tier4_vehicle_launch)/urdf/vehicle.xacro" description="path to the file of model settings (*.xacro)"/>
-      <node name="robot_state_publisher" pkg="robot_state_publisher" exec="robot_state_publisher">
-        <param name="robot_description" value="$(command 'xacro $(var model_file) vehicle_model:=$(var vehicle_model) sensor_model:=$(var sensor_model) config_dir:=$(var config_dir)' 'warn')"/>
-      </node>
-    </group>
-
-    <!-- raw vehicle cmd converter -->
-    <include file="$(find-pkg-share autoware_raw_vehicle_cmd_converter)/launch/raw_vehicle_converter.launch.xml">
-      <arg name="config_file" value="$(find-pkg-share j6_gen2_launch)/config/raw_vehicle_cmd_converter.param.yaml"/>
-    </include>
-
-    <!-- j6 interface -->
-    <include file="$(find-pkg-share j6_interface)/launch/j6_interface.launch.xml">
-      <arg name="velocity_collection_param_path" value="$(find-pkg-share individual_params)/config/$(var vehicle_id)/vehicle/velocity_collection.param.yaml"/>
-    </include>
-
-    <!-- j6 can interface -->
-    <include file="$(find-pkg-share j6_can_interface)/launch/j6_can_interface.launch.xml">
-      <arg name="is_main_ecu" value="$(var is_main_ecu)"/>
-      <arg name="main_vcu_can_device" value="peakcan0"/>
-      <arg name="sub_vcu_can_device" value="fintekcan0"/>
-      <arg name="brake_can_device" value="peakcan1"/>
-      <arg name="launch_brake_can" value="false"/>
-    </include>
   </group>
 
   <!-- System -->
   <group if="$(var launch_system)">
     <!-- System args -->
-    <arg name="domain_bridge_param_path" default="$(find-pkg-share autoware_launch)/config/system/domain_bridge/domain_bridge.redundancy.sub.param.yaml"/>
+    <arg name="domain_bridge_param_path" default="$(find-pkg-share autoware_launch)/config/system/domain_bridge/domain_bridge.redundancy.sub.psim.param.yaml"/>
     <arg name="mrm_stop_operator_param_path" default="$(find-pkg-share mrm_stop_operator)/config/mrm_stop_operator.param.yaml"/>
 
     <!-- domain bridge -->
