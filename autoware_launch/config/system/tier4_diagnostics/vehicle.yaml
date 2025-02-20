@@ -52,8 +52,8 @@ units:
 
   - path: /vehicle/comfortable_stop
     type: and
-    # list:
-    #   - { type: link, link: /vehicle/006-vehicle_errors }
+    list:
+      - { type: link, link: /vehicle/006-vehicle_errors }
 
   - path: /vehicle/fatal_error/comfortable_stop
     type: and
