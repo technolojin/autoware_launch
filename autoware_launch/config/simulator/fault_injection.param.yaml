@@ -130,7 +130,7 @@
       LOCALIZATION-001-2: "topic_state_monitor_pose_twist_fusion_filter_pose: localization_topic_status"
       LOCALIZATION-002: "topic_state_monitor_transform_map_to_base_link: localization_topic_status"
       LOCALIZATION-003: "ndt_scan_matcher: scan_matching_status"
-      LOCALIZATION-004: "localization: localization_error_monitor"
+      LOCALIZATION-004: "localization_error_monitor: ellipse_error_status"
 
       # Perception
       PERCEPTION-001-1: "topic_state_monitor_traffic_light_recognition_traffic_signals: perception_topic_status"

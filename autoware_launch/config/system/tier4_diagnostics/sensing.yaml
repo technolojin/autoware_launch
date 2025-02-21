@@ -117,11 +117,11 @@ units:
     type: and
     list:
       - { type: link, link: /sensing/radar/front_center/connection }
-      - { type: link, link: /sensing/radar/front_left/connection }
-      - { type: link, link: /sensing/radar/front_right/connection }
+      # - { type: link, link: /sensing/radar/front_left/connection }
+      # - { type: link, link: /sensing/radar/front_right/connection }
       - { type: link, link: /sensing/radar/rear_center/connection }
-      - { type: link, link: /sensing/radar/rear_left/connection }
-      - { type: link, link: /sensing/radar/rear_right/connection }
+      #- { type: link, link: /sensing/radar/rear_left/connection }
+      #- { type: link, link: /sensing/radar/rear_right/connection }
 
   - path: /sensing/lidar/front_lower/ptp-error
     type: warn-to-ok
