@@ -66,6 +66,9 @@
       # VOICE
       VOICE-001: "vehicle_voice_alert_system: /system/voice_alert_system_connection : voice alert system heartbeat"
 
+      # REDUNDANCY
+      REDUNDANCY-001: "topic_state_monitor_pose_estimator_pose_with_covariance: publish_to_sub_status"
+
       # Sensing
       # IMU
       IMU-001: "imu_monitor: yaw_rate_status"
