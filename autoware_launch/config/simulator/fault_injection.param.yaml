@@ -197,6 +197,6 @@
       OTHERS-005/front_lower: "dual_return_filter: /sensing/lidar/front_lower: visibility_validation"
       OTHERS-005/right_upper: "dual_return_filter: /sensing/lidar/right_upper: visibility_validation"
       OTHERS-005/left_upper: "dual_return_filter: /sensing/lidar/left_upper: visibility_validation"
-      OTHERS-010: "emergency_vehicle_detector: emergency_vehicle"
+      OTHERS-010: "emergency_vehicle_detector_main: emergency_vehicle"
       OTHERS-011: "daytime_monitor: daytime_status"
       OTHERS-012: "vehicle_stuck_checker: vehicle_stuck_check"

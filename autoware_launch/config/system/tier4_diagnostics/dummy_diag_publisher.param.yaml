@@ -211,4 +211,4 @@
       "dual_return_filter: /sensing/lidar/right_upper: visibility_validation": default
 
       ## /others/010-emergency_vehicle
-      "emergency_vehicle_detector: emergency_vehicle": default
+      "emergency_vehicle_detector_main: emergency_vehicle": default
