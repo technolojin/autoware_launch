@@ -65,6 +65,13 @@
     <arg name="image_raw6" value="/sensing/camera/camera8/image_raw"/>
     <arg name="image_raw7" value="/sensing/camera/camera9/image_raw"/>
     <arg name="image_raw8" value="/sensing/camera/camera10/image_raw"/>
+    <!-- camera info and rois override-->
+    <arg name="camera_info6" value="/sensing/camera/camera8/camera_info"/>
+    <arg name="detection_rois6" value="/perception/object_recognition/detection/rois8"/>
+    <arg name="camera_info7" value="/sensing/camera/camera9/camera_info"/>
+    <arg name="detection_rois7" value="/perception/object_recognition/detection/rois9"/>
+    <arg name="camera_info8" value="/sensing/camera/camera10/camera_info"/>
+    <arg name="detection_rois8" value="/perception/object_recognition/detection/rois10"/>
 
     <arg name="use_traffic_light_recognition" value="$(var use_traffic_light_recognition)"/>
     <arg name="traffic_light_recognition/enable_fine_detection" value="$(var traffic_light_recognition/enable_fine_detection)"/>
