@@ -49,6 +49,7 @@
     <arg name="objects_validation_method" value="$(var detected_objects_validation_method)"/>
     <arg name="use_obstacle_segmentation_single_frame_filter" value="$(var use_obstacle_segmentation_single_frame_filter)"/>
     <arg name="use_obstacle_segmentation_time_series_filter" value="$(var use_obstacle_segmentation_time_series_filter)"/>
+    <arg name="irregular_object_detector_fusion_camera_ids" value="[3,5]"/>
 
     <arg name="data_path" value="$(var data_path)"/>
     <arg name="lidar_detection_model_name" value="centerpoint_x2"/>
