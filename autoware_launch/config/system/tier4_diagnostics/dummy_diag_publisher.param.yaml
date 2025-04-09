@@ -205,8 +205,8 @@
       ## /others/002-blockage_validation/rear_upper
       "blockage_return_diag: /sensing/lidar/rear_upper: blockage_validation": default
 
-      ## /others/005-visibility_validation/front_lower
-      "dual_return_filter: /sensing/lidar/front_lower: visibility_validation": default
+      ## /others/005-visibility_validation/rear_upper
+      "dual_return_filter: /sensing/lidar/rear_upper: visibility_validation": default
 
       ## /others/005-visibility_validation/right_upper
       "dual_return_filter: /sensing/lidar/right_upper: visibility_validation": default
