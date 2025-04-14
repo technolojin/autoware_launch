@@ -80,13 +80,13 @@ units:
     name: heartbeat
     timeout: 3.0
 
-  - path: /foolproof/perception1/camera_not_found
+  - path: /foolproof/perception1/heartbeat
     type: diag
     node: autoware_diagnostics_bridge_node_perception1
     name: heartbeat
     timeout: 3.0
 
-  - path: /foolproof/perception2/camera_not_found
+  - path: /foolproof/perception2/heartbeat
     type: diag
     node: autoware_diagnostics_bridge_node_perception2
     name: heartbeat
