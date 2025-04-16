@@ -17,22 +17,21 @@ units:
     list:
       - { type: link, link: /foolproof/emergency_stop }
 
-
   # *******************************************************************************
   # NOTE: Please modify this section according to your environment and requirements.
   # *******************************************************************************
   - path: /foolproof/emergency_stop
     type: and
     list:
-      - { type: link, link:  /foolproof/logging/heartbeat }
-      - { type: link, link:  /foolproof/perception1/heartbeat }
-      - { type: link, link:  /foolproof/perception2/heartbeat }
-      - { type: link, link:  /foolproof/logging/ssd_not_found-error }
-      - { type: link, link:  /foolproof/perception1/camera_not_found-error }
-      - { type: link, link:  /foolproof/perception2/camera_not_found-error }
-      - { type: link, link:  /foolproof/perception1/mgbe1_not_ready-error }
-      - { type: link, link:  /foolproof/perception2/mgbe1_not_ready-error }
-      
+      - { type: link, link: /foolproof/logging/heartbeat }
+      - { type: link, link: /foolproof/perception1/heartbeat }
+      - { type: link, link: /foolproof/perception2/heartbeat }
+      - { type: link, link: /foolproof/logging/ssd_not_found-error }
+      - { type: link, link: /foolproof/perception1/camera_not_found-error }
+      - { type: link, link: /foolproof/perception2/camera_not_found-error }
+      - { type: link, link: /foolproof/perception1/mgbe1_not_ready-error }
+      - { type: link, link: /foolproof/perception2/mgbe1_not_ready-error }
+
       # - { type: link, link:  /foolproof/device_check }
 
   - path: /foolproof/pull_over
@@ -42,8 +41,6 @@ units:
   - path: /foolproof/comfortable_stop
     type: and
     # list:
-
-
 
   # *******************************************************************************
   # warning makes it ok
@@ -79,12 +76,11 @@ units:
       type: link
       link: /foolproof/perception2/mgbe1_not_ready
 
-
   # *******************************************************************************
   # Set path, node to identify and name for each individual error.
   # *******************************************************************************
 
-# Heartbeat
+  # Heartbeat
   - path: /foolproof/logging/heartbeat
     type: diag
     node: autoware_diagnostics_bridge_node_logging
@@ -103,7 +99,7 @@ units:
     name: heartbeat
     timeout: 3.0
 
-# fool proof check
+  # fool proof check
 
   - path: /foolproof/logging/ssd_not_found
     type: diag
