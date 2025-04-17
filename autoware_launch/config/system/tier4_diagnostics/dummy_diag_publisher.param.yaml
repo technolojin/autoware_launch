@@ -213,3 +213,16 @@
 
       ## /others/010-emergency_vehicle
       "emergency_vehicle_detector_main: emergency_vehicle": default
+
+      # fool proof
+      ## Heartbeat
+      "autoware_diagnostics_bridge_node_logging: heartbeat": default
+      "autoware_diagnostics_bridge_node_perception1: heartbeat": default
+      "autoware_diagnostics_bridge_node_perception2: heartbeat": default
+
+      ## fool proof check
+      "autoware_diagnostics_bridge_node_logging: logging_ssd": default
+      "autoware_diagnostics_bridge_node_perception1: perception1_camera": default
+      "autoware_diagnostics_bridge_node_perception2: perception2_camera": default
+      "autoware_diagnostics_bridge_node_perception1: perception1_mgbe1-ready": default
+      "autoware_diagnostics_bridge_node_perception2: perception2_mgbe1-ready": default
