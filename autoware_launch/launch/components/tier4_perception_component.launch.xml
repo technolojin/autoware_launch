@@ -32,7 +32,7 @@
   />
 
   <include file="$(find-pkg-share tier4_perception_launch)/launch/perception.launch.xml">
-    <arg name="use_multi_channel_tracker_merger" value="true"/>
+    <arg name="use_multi_channel_tracker_merger" value="false"/>
 
     <arg name="data_path" value="$(var data_path)"/>
     <!-- general options to switch launch function/module -->
