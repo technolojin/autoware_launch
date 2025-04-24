@@ -180,6 +180,9 @@
       ## /vehicle/007-vehicle-emergency-button
       "j6_interface: vehicle_emergency_button": default
 
+      ## /vehicle/008-vcu-not-authenticated
+      "j6_interface: vcu_not_authenticated": default
+
       # others
       ## /others/002-blockage_validation/front_lower
       "blockage_return_diag: /sensing/lidar/front_lower: blockage_validation": default
