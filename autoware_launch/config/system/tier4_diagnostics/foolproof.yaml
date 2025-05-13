@@ -136,12 +136,12 @@ units:
   - path: /foolproof/node_alive
     type: and
     list:
-      - { type: link, link:  /foolproof/main/autoware_node_alive }
-      - { type: link, link:  /foolproof/main/autoware_system_node_alive }
-      - { type: link, link:  /foolproof/perception1/recognition_node_alive }
-      - { type: link, link:  /foolproof/perception2/recognition_node_alive }
+      - { type: link, link: /foolproof/main/autoware_node_alive }
+      - { type: link, link: /foolproof/main/autoware_system_node_alive }
+      - { type: link, link: /foolproof/perception1/recognition_node_alive }
+      - { type: link, link: /foolproof/perception2/recognition_node_alive }
       # - { type: link, link:  /foolproof/addon/recognition_node_alive }
-  
+
   # letterbox_monitor individual
 
   - path: /foolproof/main/autoware_node_alive
