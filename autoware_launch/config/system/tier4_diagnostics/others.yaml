@@ -41,10 +41,10 @@ units:
   - path: /others/emergency_stop
     type: and
     list:
-      - { type: link, link: /others/002-blockage_validation-error }
+      # - { type: link, link: /others/002-blockage_validation-error }
       - { type: link, link: /others/004-concat_status }
-      - { type: link, link: /others/012-vehicle_stuck_checker }
-      - { type: link, link: /others/005-visibility_validation-error }
+      # - { type: link, link: /others/012-vehicle_stuck_checker }
+      # - { type: link, link: /others/005-visibility_validation-error }
 
   - path: /others/fatal_error/emergency_stop
     type: and
@@ -53,7 +53,7 @@ units:
     type: and
     list:
       - { type: link, link: /others/010-emergency_vehicle_main-error }
-      - { type: link, link: /others/011-daytime_monitor }
+      # - { type: link, link: /others/011-daytime_monitor }
 
   - path: /others/fatal_error/comfortable_stop
     type: and

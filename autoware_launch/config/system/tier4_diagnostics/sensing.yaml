@@ -62,7 +62,7 @@ units:
     type: and
     list:
       - { type: link, link: /sensing/lidar/pndr/002-temperature }
-      - { type: link, link: /sensing/gnss/001-connection-error }
+      # - { type: link, link: /sensing/gnss/001-connection-error }
 
   - path: /sensing/fatal_error/comfortable_stop
     type: and
