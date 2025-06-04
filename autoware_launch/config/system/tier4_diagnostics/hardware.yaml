@@ -52,14 +52,13 @@ units:
       - { type: link, link: /hardware/gpu/003-memory-error }
       - { type: link, link: /hardware/gpu/004-throttling-error }
       - { type: link, link: /hardware/gpu/005-frequency-error }
-
-  - path: /hardware/fatal_error/emergency_stop
-    type: and
-    list:
       - { type: link, link: /hardware/hdd/003-connection-error }
       - { type: link, link: /hardware/hdd/006-soft_error-error }
       - { type: link, link: /hardware/memory/002-ecc-error }
       - { type: link, link: /hardware/network/003-crc-error }
+
+  - path: /hardware/fatal_error/emergency_stop
+    type: and
 
   - path: /hardware/pull_over
     type: and

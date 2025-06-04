@@ -47,11 +47,10 @@ units:
       - { type: link, link: /sensing/lidar/pndr/003-ptp }
       - { type: link, link: /sensing/camera/001-connection }
       - { type: link, link: /sensing/radar/001-connection }
+      - { type: link, link: /sensing/imu/001-monitor-error }
 
   - path: /sensing/fatal_error/emergency_stop
     type: and
-    list:
-      - { type: link, link: /sensing/imu/001-monitor-error }
 
   - path: /sensing/pull_over
     type: and
