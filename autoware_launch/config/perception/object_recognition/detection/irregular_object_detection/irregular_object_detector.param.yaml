@@ -36,6 +36,6 @@
       parameters:
         fuse_unknown_only: true
         min_cluster_size: 2
-        max_cluster_size: 200
+        max_cluster_size: 1000
         cluster_2d_tolerance: 0.5
         roi_scale_factor: 2.0
