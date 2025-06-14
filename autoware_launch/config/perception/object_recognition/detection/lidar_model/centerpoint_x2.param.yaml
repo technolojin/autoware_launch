@@ -15,6 +15,8 @@
       iou_nms_threshold: 0.1
       yaw_norm_thresholds: [0.3, 0.3, 0.3, 0.3, 0.0]
       score_threshold: 0.35
+      front_back_low_score_threshold: 0.24
+      ego_width: 1.6
     densification_params:
       world_frame_id: map
       num_past_frames: 1
