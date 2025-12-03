@@ -27,7 +27,7 @@
   </group>
 
   <arg name="use_empty_dynamic_object_publisher" default="false" description="if true, /perception/object_recognition/objects topic has an empty DynamicObjectArray"/>
-  <arg name="use_traffic_light_recognition" default="true" description="use traffic light recognition module, if false, traffic light recognition module will not be launched"/>
+  <arg name="use_traffic_light_recognition" default="false" description="use traffic light recognition module, if false, traffic light recognition module will not be launched"/>
 
   <arg name="use_low_height_cropbox" default="false" description="use low height crop filter in clustering"/>
   <arg name="use_vector_map" default="true" description="use vector map in prediction"/>
@@ -44,7 +44,7 @@
   <arg name="use_obstacle_segmentation_time_series_filter" default="true" description="use time series filter at the ground segmentation"/>
   <arg name="segmentation_pointcloud_fusion_camera_ids" default="[0,2,4]" description="list of camera ids used for segmentation_pointcloud_fusion node, mainly using front camera"/>
   <arg name="use_multi_channel_tracker_merger" default="true" description="if true, multi channel tracker merger is used. Otherwise, merged object is used."/>
-  <arg name="tracker_publish_merged_objects" default="false"/>
+  <arg name="tracker_publish_merged_objects" default="true"/>
   <arg name="use_camera_vru_detector" default="false" description="enable pipeline for camera VRU object detection"/>
   <arg name="camera_vru_detector_rois_ids" default="[0]" description="list of ROIs ids used for detecting VRU."/>
 
@@ -53,7 +53,7 @@
   <arg name="detected_objects_filter_method" default="lanelet_filter" description="options: lanelet_filter, position_filter"/>
   <arg name="detected_objects_validation_method" default="obstacle_pointcloud" description="options: obstacle_pointcloud, occupancy_grid (must be used with laserscan_based_occupancy_grid_map)"/>
   <arg name="data_path" default="$(env HOME)/autoware_data" description="packages data and artifacts directory path"/>
-  <arg name="lidar_detection_model" default="centerpoint" description="If the model name is not declared, the default model in perception.launch.xml will be used"/>
+  <arg name="lidar_detection_model" default="centerpoint/centerpoint" description="If the model name is not declared, the default model in perception.launch.xml will be used"/>
   <arg name="ml_camera_lidar_merger_priority_mode" default="0" description="priority mode for ml and camera_lidar merger, options: `0: Object0`, `1: Object1`, `2: ConfidenceBased`, `3: ClassBased`"/>
   <arg name="input_pointcloud_for_traffic_light_occlusion_predictor" default="/sensing/lidar/top/pointcloud_raw_ex" description="input pointcloud topic for traffic_light_occlusion_predictor"/>
 
