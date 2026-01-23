@@ -104,7 +104,7 @@ components:
 
   # PLANNING/CONTROL
   - name: planning
-    entity: Tier4PlanningWrapper.node
+    entity: Planning.module
     namespace: planning
     compute_unit: main_ecu
   - name: control
@@ -175,14 +175,18 @@ connections:
   - from: occupancy_grid_map.output.map
     to: planning.input.occupancy_grid_map
   - from: map.output.vector_map
-    to: planning.input.lanelet_map
+    to: planning.input.vector_map
   - from: object_recognition.output.objects
     to: planning.input.objects
   - from: obstacle_segmentation.output.pointcloud
-    to: planning.input.obstacle_pointcloud
+    to: planning.input.pointcloud
+  - from: localization.output.kinematic_state
+    to: planning.input.odometry
+  - from: localization.output.acceleration
+    to: planning.input.acceleration
 
   - from: planning.output.mission_planning/route
-    to: control.input.mission_planning/route  
+    to: control.input.mission_planning/route
   - from: localization.output.kinematic_state
     to: control.input.kinematics
   - from: localization.output.acceleration
