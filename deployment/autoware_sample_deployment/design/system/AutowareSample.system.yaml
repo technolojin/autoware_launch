@@ -107,7 +107,7 @@ components:
     namespace: planning
     compute_unit: main_ecu
   - name: control
-    entity: Tier4ControlWrapper.node
+    entity: Control.module
     namespace: control
     compute_unit: main_ecu
 
