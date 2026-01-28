@@ -19,7 +19,7 @@ inputs:
   - name: costmap
     message_type: nav_msgs/msg/OccupancyGrid
   - name: traffic_signals
-    message_type: autoware_perception_msgs/msg/TrafficSignalArray
+    message_type: autoware_perception_msgs/msg/TrafficLightGroupArray
   - name: odometry
     message_type: nav_msgs/msg/Odometry
   - name: accel

@@ -27,9 +27,9 @@ inputs:
   - name: external_velocity_limit_mps
     message_type: tier4_planning_msgs/msg/VelocityLimit
   - name: traffic_signals
-    message_type: autoware_perception_msgs/msg/TrafficSignalArray
+    message_type: autoware_perception_msgs/msg/TrafficLightGroupArray
   - name: virtual_traffic_light_states
-    message_type: autoware_perception_msgs/msg/TrafficSignalArray
+    message_type: autoware_perception_msgs/msg/TrafficLightGroupArray
   - name: occupancy_grid
     message_type: nav_msgs/msg/OccupancyGrid
 outputs:
@@ -40,7 +40,7 @@ outputs:
   - name: infrastructure_commands
     message_type: tier4_planning_msgs/msg/InfrastructureCommandArray
   - name: traffic_signal
-    message_type: autoware_perception_msgs/msg/TrafficSignalArray
+    message_type: autoware_perception_msgs/msg/TrafficLightGroupArray
 parameters:
   - name: launch_modules
     type: string
