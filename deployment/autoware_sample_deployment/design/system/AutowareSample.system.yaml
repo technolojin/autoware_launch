@@ -183,16 +183,18 @@ connections:
   - from: localization.output.acceleration
     to: planning.input.acceleration
 
+  - from: planning.output.trajectory
+    to: control.input.trajectory
   - from: planning.output.route
-    to: control.input.mission_planning/route
+    to: control.input.route
   - from: localization.output.kinematic_state
-    to: control.input.kinematics
+    to: control.input.odometry
   - from: localization.output.acceleration
     to: control.input.acceleration
   - from: object_recognition.output.objects
     to: control.input.objects
   - from: obstacle_segmentation.output.pointcloud
-    to: control.input.obstacle_pointcloud
+    to: control.input.pointcloud
   - from: sensing.output.imu/imu_data
     to: control.input.imu
 
@@ -271,13 +273,13 @@ E2ESimulation:
       # control
       - from: AWSIM_out.output.vehicle/status/velocity_status
         to: control.input.velocity_status
-      - from: control.output.command/control_cmd
+      - from: control.output.control_cmd
         to: AWSIM_in.input.control/command/control_cmd
-      - from: control.output.command/gear_cmd
+      - from: control.output.gear_cmd
         to: AWSIM_in.input.control/command/gear_cmd
-      - from: control.output.command/hazard_lights_cmd
+      - from: control.output.hazard_lights_cmd
         to: AWSIM_in.input.control/command/hazard_lights_cmd
-      - from: control.output.command/turn_indicators_cmd
+      - from: control.output.turn_indicators_cmd
         to: AWSIM_in.input.control/command/turn_indicators_cmd
   remove:
     connections:

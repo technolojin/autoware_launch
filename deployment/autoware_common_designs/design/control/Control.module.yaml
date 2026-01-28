@@ -38,6 +38,7 @@ external_interfaces:
     - name: steering_status
     - name: gear_status
     - name: velocity_status
+    - name: imu
 
     # System & Operation
     - name: operation_mode_state
@@ -178,6 +179,8 @@ connections:
     to: autonomous_emergency_braking.input.objects
   - from: input.velocity_status
     to: autonomous_emergency_braking.input.velocity
+  - from: input.imu
+    to: autonomous_emergency_braking.input.imu
   - from: trajectory_follower.output.predicted_trajectory
     to: autonomous_emergency_braking.input.predicted_trajectory
 

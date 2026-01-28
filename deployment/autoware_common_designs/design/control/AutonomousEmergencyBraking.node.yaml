@@ -11,7 +11,7 @@ inputs:
   - name: pointcloud
     message_type: sensor_msgs/msg/PointCloud2
   - name: velocity
-    message_type: geometry_msgs/msg/TwistStamped
+    message_type: autoware_vehicle_msgs/msg/VelocityReport
   - name: imu
     message_type: sensor_msgs/msg/Imu
   - name: objects
