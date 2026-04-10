@@ -133,6 +133,8 @@ connections:
     - stop_mode_operator.subscriber.route_state
   - - subscriber.trajectory
     - lane_departure_checker.subscriber.reference_trajectory
+  - - trajectory_follower.publisher.predicted_trajectory
+    - lane_departure_checker.subscriber.predicted_trajectory
   - - subscriber.pointcloud
     - autonomous_emergency_braking.subscriber.pointcloud
   - - subscriber.objects
@@ -165,3 +167,7 @@ connections:
     - publisher.is_autonomous_available
   - - control_evaluator.publisher.metrics
     - publisher.control_evaluation
+  - - trajectory_follower.publisher.predicted_trajectory
+    - control_validator.subscriber.predicted_trajectory
+  - - subscriber.odometry
+    - collision_detector.subscriber.odometry
