@@ -453,3 +453,6 @@ PlanningSimulation:
         - control.subscriber.acceleration
       - - simulator.publisher.localization/acceleration
         - planning.subscriber.acceleration
+
+      - - simulator.publisher.sensing/imu/imu_data
+        - control.subscriber.imu
