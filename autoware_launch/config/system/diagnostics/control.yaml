@@ -54,12 +54,12 @@ units:
 
   - path: /autoware/control/performance_monitoring/lane_departure
     type: diag
-    node: lane_departure_checker_node
+    node: lane_departure_checker
     name: lane_departure
 
   - path: /autoware/control/performance_monitoring/control_state
     type: diag
-    node: controller_node_exe
+    node: trajectory_follower
     name: control_state
 
   - path: /autoware/control/topic_rate_check/external_cmd_selector
