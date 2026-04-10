@@ -189,6 +189,8 @@ connections:
     - autonomous_emergency_braking.subscriber.imu
   - - trajectory_follower.publisher.predicted_trajectory
     - autonomous_emergency_braking.subscriber.predicted_trajectory
+  - - subscriber.autoware_state
+    - autonomous_emergency_braking.subscriber.autoware_state
   - - subscriber.trajectory
     - control_evaluator.subscriber.trajectory
   - - subscriber.odometry

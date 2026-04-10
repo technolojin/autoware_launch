@@ -134,9 +134,6 @@ node_groups:
       - /control/vehicle_cmd_gate
       - /control/operation_mode_transition_manager
       - /control/trajectory_follower
-  - name: control_check_container
-    type: ros2_component_container_mt
-    nodes:
       - /control/lane_departure_checker
       - /control/control_validator
       - /control/autonomous_emergency_braking
@@ -260,6 +257,8 @@ connections:
 
   - - system.publisher.fail_safe/mrm_state
     - adapi.subscriber.system/fail_safe/mrm_state
+  - - system.publisher.fail_safe/mrm_state
+    - control.subscriber.mrm_state
 
   - - planning.server.clear_route
     - adapi.client.routing/clear_route
@@ -429,6 +428,8 @@ PlanningSimulation:
         - control.subscriber.steering_status
       - - simulator.publisher.vehicle/status/actuation_status
         - vehicle.subscriber.actuation_status
+      - - simulator.publisher.vehicle/status/gear_status
+        - control.subscriber.gear_status
       - - system.publisher.operation_mode/state
         - vehicle.subscriber.operation_mode_state
       - - vehicle.publisher.actuation_cmd
@@ -461,3 +462,7 @@ PlanningSimulation:
         - control.subscriber.imu
       - - vehicle.publisher.actuation_cmd # TODO this should be the default, not an override
         - adapi.subscriber.control/actuation_cmd
+      - - simulator.publisher.vehicle/status/gear_status
+        - adapi.subscriber.vehicle/status/gear_status
+      - - adapi.publisher.autoware/state
+        - control.subscriber.autoware_state

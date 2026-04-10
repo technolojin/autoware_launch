@@ -19,6 +19,7 @@ subscribers:
 publishers:
   - name: actuation_cmd
   - name: doors/status
+  - name: gear_status
 
 connections:
   - - subscriber.*
