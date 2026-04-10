@@ -242,6 +242,9 @@ connections:
   - - system.publisher.operation_mode/state
     - control.subscriber.operation_mode_state
 
+  - - control.publisher.command/control_cmd
+    - adapi.subscriber.control/control_cmd
+
   - - localization.publisher.kinematic_state
     - control.subscriber.odometry
   - - localization.publisher.acceleration
@@ -332,7 +335,7 @@ E2ESimulation:
       # control
       - - AWSIM_out.publisher.vehicle/status/velocity_status
         - control.subscriber.velocity_status
-      - - control.publisher.control_cmd
+      - - control.publisher.command/control_cmd
         - AWSIM_in.subscriber.control/command/control_cmd
       - - control.publisher.gear_cmd
         - AWSIM_in.subscriber.control/command/gear_cmd
@@ -412,9 +415,9 @@ PlanningSimulation:
         - simulator.subscriber.initialpose3d
       - - planning.publisher.trajectory
         - simulator.subscriber.planning/trajectory
-      - - control.publisher.control_cmd
+      - - control.publisher.command/control_cmd
         - simulator.subscriber.control/command/control_cmd
-      - - control.publisher.control_cmd
+      - - control.publisher.command/control_cmd
         - vehicle.subscriber.control_cmd
       - - simulator.publisher.localization/kinematic_state
         - vehicle.subscriber.odometry
@@ -456,3 +459,5 @@ PlanningSimulation:
 
       - - simulator.publisher.sensing/imu/imu_data
         - control.subscriber.imu
+      - - vehicle.publisher.actuation_cmd # TODO this should be the default, not an override
+        - adapi.subscriber.control/actuation_cmd

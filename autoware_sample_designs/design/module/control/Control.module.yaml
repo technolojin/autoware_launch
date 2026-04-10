@@ -62,7 +62,7 @@ subscribers:
   - name: local_heartbeat
 
 publishers:
-  - name: control_cmd
+  - name: command/control_cmd
   - name: gear_cmd
   - name: turn_indicators_cmd
   - name: hazard_lights_cmd
@@ -101,6 +101,34 @@ connections:
     - external_cmd_selector.subscriber.remote_hazard_lights_cmd
   - - subscriber.remote_heartbeat
     - external_cmd_selector.subscriber.remote_heartbeat
+  - - subscriber.local_pedals_cmd
+    - external_cmd_selector.subscriber.local_pedals_cmd
+  - - subscriber.local_gear_cmd
+    - external_cmd_selector.subscriber.local_gear_cmd
+  - - subscriber.local_steering_cmd
+    - external_cmd_selector.subscriber.local_steering_cmd
+  - - subscriber.local_turn_indicators_cmd
+    - external_cmd_selector.subscriber.local_turn_indicators_cmd
+  - - subscriber.local_hazard_lights_cmd
+    - external_cmd_selector.subscriber.local_hazard_lights_cmd
+  - - subscriber.local_heartbeat
+    - external_cmd_selector.subscriber.local_heartbeat
+  - - external_cmd_selector.publisher.pedals_cmd
+    - external_cmd_converter.subscriber.pedals_cmd
+  - - external_cmd_selector.publisher.steering_cmd
+    - external_cmd_converter.subscriber.steering_cmd
+  - - external_cmd_selector.publisher.gear_cmd
+    - external_cmd_converter.subscriber.gear_cmd
+  - - external_cmd_selector.publisher.heartbeat
+    - external_cmd_converter.subscriber.heartbeat
+  - - external_cmd_selector.publisher.turn_indicators_cmd
+    - vehicle_cmd_gate.subscriber.external_turn_indicators_cmd
+  - - external_cmd_selector.publisher.hazard_lights_cmd
+    - vehicle_cmd_gate.subscriber.external_hazard_lights_cmd
+  - - external_cmd_selector.publisher.gear_cmd
+    - vehicle_cmd_gate.subscriber.external_gear_cmd
+  - - external_cmd_selector.publisher.heartbeat
+    - vehicle_cmd_gate.subscriber.external_emergency_stop_heartbeat
   - - trajectory_follower.publisher.control_cmd
     - vehicle_cmd_gate.subscriber.auto_control_cmd
   - - shift_decider.publisher.gear_cmd
@@ -111,6 +139,22 @@ connections:
     - vehicle_cmd_gate.subscriber.auto_hazard_lights_cmd
   - - external_cmd_converter.publisher.control_cmd
     - vehicle_cmd_gate.subscriber.external_control_cmd
+  - - vehicle_cmd_gate.publisher.gate_mode
+    - external_cmd_converter.subscriber.current_gate_mode
+  - - subscriber.odometry
+    - external_cmd_converter.subscriber.odometry
+  - - stop_mode_operator.publisher.control
+    - vehicle_cmd_gate.subscriber.emergency_control_cmd
+  - - stop_mode_operator.publisher.gear
+    - vehicle_cmd_gate.subscriber.emergency_gear_cmd
+  - - stop_mode_operator.publisher.turn_indicators
+    - vehicle_cmd_gate.subscriber.emergency_turn_indicators_cmd
+  - - stop_mode_operator.publisher.hazard_lights
+    - vehicle_cmd_gate.subscriber.emergency_hazard_lights_cmd
+  - - subscriber.steering_status
+    - vehicle_cmd_gate.subscriber.steering
+  - - subscriber.acceleration
+    - vehicle_cmd_gate.subscriber.acceleration
   - - subscriber.operation_mode_state
     - vehicle_cmd_gate.subscriber.operation_mode
   - - subscriber.mrm_state
@@ -121,7 +165,7 @@ connections:
     - operation_mode_transition_manager.subscriber.trajectory
   - - trajectory_follower.publisher.control_cmd
     - operation_mode_transition_manager.subscriber.trajectory_follower_control_cmd
-  - - vehicle_cmd_gate.publisher.control_cmd
+  - - vehicle_cmd_gate.publisher.command/control_cmd
     - operation_mode_transition_manager.subscriber.control_cmd
   - - subscriber.odometry
     - lane_departure_checker.subscriber.odometry
@@ -153,8 +197,8 @@ connections:
     - control_evaluator.subscriber.acceleration
   - - subscriber.steering_status
     - control_evaluator.subscriber.steering_status
-  - - vehicle_cmd_gate.publisher.control_cmd
-    - publisher.control_cmd
+  - - vehicle_cmd_gate.publisher.command/control_cmd
+    - publisher.command/control_cmd
   - - vehicle_cmd_gate.publisher.gear_cmd
     - publisher.gear_cmd
   - - vehicle_cmd_gate.publisher.turn_indicators_cmd
@@ -163,11 +207,17 @@ connections:
     - publisher.hazard_lights_cmd
   - - vehicle_cmd_gate.publisher.gate_mode
     - publisher.gate_mode
+  - - vehicle_cmd_gate.publisher.operation_mode
+    - publisher.control_mode
   - - operation_mode_transition_manager.publisher.operation_mode
     - publisher.is_autonomous_available
   - - control_evaluator.publisher.metrics
     - publisher.control_evaluation
   - - trajectory_follower.publisher.predicted_trajectory
     - control_validator.subscriber.predicted_trajectory
+  - - subscriber.objects
+    - collision_detector.subscriber.objects
+  - - subscriber.pointcloud
+    - collision_detector.subscriber.pointcloud
   - - subscriber.odometry
     - collision_detector.subscriber.odometry

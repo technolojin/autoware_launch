@@ -24,6 +24,10 @@ subscribers:
     message_type: autoware_adapi_v1_msgs/msg/RouteState
 
   # Control inputs
+  - name: control/actuation_cmd
+    message_type: tier4_vehicle_msgs/msg/ActuationCommandStamped
+  - name: control/control_cmd
+    message_type: autoware_control_msgs/msg/Control
   - name: control/operation_mode_state
     message_type: autoware_adapi_v1_msgs/msg/OperationModeState
   - name: control/steering_status
