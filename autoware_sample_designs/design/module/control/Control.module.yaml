@@ -42,6 +42,7 @@ subscribers:
   - name: velocity_status
   - name: imu
   - name: operation_mode_state
+  - name: control_mode_state
   - name: autoware_state
   - name: mrm_state
   - name: objects
@@ -63,14 +64,14 @@ subscribers:
 
 publishers:
   - name: command/control_cmd
-  - name: gear_cmd
+  - name: command/gear_cmd
   - name: turn_indicators_cmd
   - name: hazard_lights_cmd
-  - name: control_mode
   - name: gate_mode
   - name: is_autonomous_available
   - name: diagnostic
   - name: control_evaluation
+  - name: engage
 
 connections:
   - - subscriber.trajectory
@@ -161,10 +162,20 @@ connections:
     - vehicle_cmd_gate.subscriber.mrm_state
   - - subscriber.odometry
     - vehicle_cmd_gate.subscriber.kinematics
+  - - vehicle_cmd_gate.publisher.engage
+    - operation_mode_transition_manager.subscriber.engage
+  - - operation_mode_transition_manager.publisher.engage
+    - vehicle_cmd_gate.subscriber.engage
   - - subscriber.trajectory
     - operation_mode_transition_manager.subscriber.trajectory
+  - - subscriber.odometry
+    - operation_mode_transition_manager.subscriber.kinematics
   - - trajectory_follower.publisher.control_cmd
     - operation_mode_transition_manager.subscriber.trajectory_follower_control_cmd
+  - - subscriber.control_mode_state
+    - operation_mode_transition_manager.subscriber.control_mode_report
+  - - vehicle_cmd_gate.publisher.gate_mode
+    - operation_mode_transition_manager.subscriber.gate_operation_mode
   - - vehicle_cmd_gate.publisher.command/control_cmd
     - operation_mode_transition_manager.subscriber.control_cmd
   - - subscriber.odometry
@@ -202,17 +213,17 @@ connections:
   - - vehicle_cmd_gate.publisher.command/control_cmd
     - publisher.command/control_cmd
   - - vehicle_cmd_gate.publisher.gear_cmd
-    - publisher.gear_cmd
+    - publisher.command/gear_cmd
   - - vehicle_cmd_gate.publisher.turn_indicators_cmd
     - publisher.turn_indicators_cmd
   - - vehicle_cmd_gate.publisher.hazard_lights_cmd
     - publisher.hazard_lights_cmd
   - - vehicle_cmd_gate.publisher.gate_mode
     - publisher.gate_mode
-  - - vehicle_cmd_gate.publisher.operation_mode
-    - publisher.control_mode
   - - operation_mode_transition_manager.publisher.operation_mode
     - publisher.is_autonomous_available
+  - - operation_mode_transition_manager.publisher.engage
+    - publisher.engage
   - - control_evaluator.publisher.metrics
     - publisher.control_evaluation
   - - trajectory_follower.publisher.predicted_trajectory

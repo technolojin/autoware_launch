@@ -244,6 +244,8 @@ connections:
 
   - - localization.publisher.kinematic_state
     - control.subscriber.odometry
+  - - localization.publisher.kinematic_state
+    - system.subscriber.odometry
   - - localization.publisher.acceleration
     - control.subscriber.acceleration
   - - map.publisher.vector_map
@@ -336,7 +338,7 @@ E2ESimulation:
         - control.subscriber.velocity_status
       - - control.publisher.command/control_cmd
         - AWSIM_in.subscriber.control/command/control_cmd
-      - - control.publisher.gear_cmd
+      - - control.publisher.command/gear_cmd
         - AWSIM_in.subscriber.control/command/gear_cmd
       - - control.publisher.hazard_lights_cmd
         - AWSIM_in.subscriber.control/command/hazard_lights_cmd
@@ -434,7 +436,7 @@ PlanningSimulation:
         - vehicle.subscriber.operation_mode_state
       - - vehicle.publisher.actuation_cmd
         - simulator.subscriber.control/command/actuation_cmd
-      - - control.publisher.gear_cmd
+      - - control.publisher.command/gear_cmd
         - simulator.subscriber.control/command/gear_cmd
       - - control.publisher.turn_indicators_cmd
         - simulator.subscriber.control/command/turn_indicators_cmd
@@ -466,3 +468,7 @@ PlanningSimulation:
         - adapi.subscriber.vehicle/status/gear_status
       - - adapi.publisher.autoware/state
         - control.subscriber.autoware_state
+      - - simulator.publisher.vehicle/status/control_mode
+        - control.subscriber.control_mode_state
+      - - control.publisher.engage
+        - simulator.subscriber.vehicle/engage
