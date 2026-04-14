@@ -3,6 +3,7 @@
     input_channels:
       # Merged detected objects, i.e. "/perception/object_recognition/detection/objects"
       detected_objects:
+        input_type: "detected_objects"
         optional:
           name: "detected_objects"
           short_name: "all"
@@ -106,6 +107,7 @@
           short_name: "dbT"
       # RADAR
       radar:
+        input_type: "tracked_objects"
         flags:
           can_spawn_new_tracker: true
           can_trust_existence_probability: true

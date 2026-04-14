@@ -165,7 +165,7 @@
     default="true"
     description="if use_radar_tracking_fusion:=true, radar information is merged in tracking launch. Otherwise, radar information is merged in detection launch."
   />
-  <arg name="input/radar" default="/sensing/radar/detected_objects"/>
+  <arg name="input/radar" default="/sensing/radar/tracked_objects"/>
 
   <!-- Object merger method: whether to enable multi-channel tracker merger -->
   <arg name="use_multi_channel_tracker_merger" default="false" description="if it is true, replace the multi step merger to multi-channel tracker merger."/>
