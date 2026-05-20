@@ -1,4 +1,4 @@
-autoware_system_design_format: 0.3.0
+autoware_system_design_format: 0.3.1
 
 # module information
 name: Control.module
@@ -77,8 +77,6 @@ subscribers:
   - name: emergency_turn_indicators_cmd
   - name: emergency_hazard_lights_cmd
   - name: emergency_gear_cmd
-  - name: gate_mode_cmd
-  - name: engage
 
 publishers:
   - name: command/control_cmd
@@ -88,11 +86,16 @@ publishers:
   - name: command/emergency_cmd
   - name: predicted_trajectory
   - name: engage
+  - name: api/engage
   - name: external_emergency
   - name: is_autonomous_available
   - name: control_evaluation
   - name: gate_mode_cmd
   - name: current_gate_mode
+
+servers:
+  - name: engage_service
+  - name: external_emergency_service
 
 connections:
   # TrajectoryFollower node
@@ -186,9 +189,9 @@ connections:
     - vehicle_cmd_gate.subscriber.emergency_hazard_lights_cmd
   - - subscriber.emergency_gear_cmd
     - vehicle_cmd_gate.subscriber.emergency_gear_cmd
-  - - subscriber.gate_mode_cmd
+  - - operation_mode_transition_manager.publisher.gate_mode_cmd
     - vehicle_cmd_gate.subscriber.gate_mode
-  - - subscriber.engage
+  - - operation_mode_transition_manager.publisher.engage
     - vehicle_cmd_gate.subscriber.engage
 
   # OperationModeTransitionManager
@@ -291,6 +294,14 @@ connections:
     - control_evaluator.subscriber.virtual_traffic_light
   - - subscriber.walkway
     - control_evaluator.subscriber.walkway
+
+  # VehicleCmdGate API ports
+  - - vehicle_cmd_gate.publisher.engage
+    - publisher.api/engage
+  - - vehicle_cmd_gate.server.engage_service
+    - server.engage_service
+  - - vehicle_cmd_gate.server.external_emergency_service
+    - server.external_emergency_service
 
   # Publishers
   - - vehicle_cmd_gate.publisher.control_cmd
