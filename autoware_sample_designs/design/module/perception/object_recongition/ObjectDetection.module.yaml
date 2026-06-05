@@ -15,6 +15,8 @@ instances:
     entity: LidarClustering.module
   - name: object_lanelet_filter
     entity: ObjectLaneletFilter.node
+  - name: class_based_cluster
+    entity: LabelBasedEuclideanCluster.node
 
 subscribers:
   - name: pointcloud_map
@@ -22,6 +24,7 @@ subscribers:
   - name: service_pointcloud_map_diff
   - name: kinematic_state
   - name: pointcloud
+  - name: segmented_pointcloud
   - name: obstacle_pointcloud
 publishers:
   - name: lidar_clustering_objects
@@ -41,6 +44,8 @@ connections:
   # clustering
   - - pointcloud_map_filter.publisher.filtered_pointcloud
     - clustering.subscriber.pointcloud
+  - - subscriber.segmented_pointcloud
+    - class_based_cluster.subscriber.input_pointcloud
 
   # filter
   - - clustering.publisher.detected_objects

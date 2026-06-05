@@ -7,12 +7,15 @@ instances:
     entity: CropBoxFilter.node
   - name: common_ground_filter
     entity: ScanGroundFilter.node
+  - name: lidar_segmentation
+    entity: LidarSegmentationPTv3.node
 
 subscribers:
   # lidar
   - name: concatenated_pointcloud
 publishers:
   - name: pointcloud
+  - name: segmented_pointcloud
 
 connections:
   - - subscriber.concatenated_pointcloud
@@ -21,3 +24,7 @@ connections:
     - common_ground_filter.subscriber.pointcloud
   - - common_ground_filter.publisher.pointcloud
     - publisher.pointcloud
+  - - subscriber.concatenated_pointcloud
+    - lidar_segmentation.subscriber.pointcloud
+  - - lidar_segmentation.publisher.pointcloud/segmentation
+    - publisher.segmented_pointcloud

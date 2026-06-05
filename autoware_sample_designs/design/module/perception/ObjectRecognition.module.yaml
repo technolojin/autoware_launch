@@ -23,6 +23,7 @@ subscribers:
   - name: pointcloud
   - name: obstacle_pointcloud
   - name: lidar_ml_objects
+  - name: segmented_pointcloud
 publishers:
   - name: objects
 
@@ -40,6 +41,8 @@ connections:
     - detection.subscriber.pointcloud
   - - subscriber.obstacle_pointcloud
     - detection.subscriber.obstacle_pointcloud
+  - - subscriber.segmented_pointcloud
+    - detection.subscriber.segmented_pointcloud
 
   # tracking
   - - detection.publisher.lidar_ml_objects

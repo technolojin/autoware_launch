@@ -43,6 +43,8 @@ connections:
     - object_recognition.subscriber.pointcloud
   - - obstacle_segmentation.publisher.pointcloud
     - object_recognition.subscriber.obstacle_pointcloud
+  - - obstacle_segmentation.publisher.segmented_pointcloud
+    - object_recognition.subscriber.segmented_pointcloud
   - - subscriber.vector_map
     - object_recognition.subscriber.vector_map
   - - subscriber.pointcloud_map
