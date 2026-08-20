@@ -84,20 +84,19 @@ parameters:
       - name: publish_debug_markers
         value: true
 
-  - node: /perception/obstacle_segmentation/crop_box_filter
+  - node: /perception/obstacle_segmentation/ptv3
     param_files:
-      - crop_box_filter_param_file: $(var config_path)/perception/obstacle_segmentation/crop_box_filter.param.yaml
-    param_values: []
-
-  - node: /perception/obstacle_segmentation/common_ground_filter
-    param_files:
-      - ground_segmentation_param_file: $(var config_path)/perception/obstacle_segmentation/ground_segmentation.param.yaml
-      - vehicle_info_param_file: $(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml
+      - encoder_ml_package_param_path: $(var data_path)/ptv3/ml_package_ptv3_encoder.param.yaml
+      - seg3d_head_ml_package_param_path: $(var data_path)/ptv3/ml_package_ptv3_seg3d_head.param.yaml
+      - det3d_head_ml_package_param_path: $(var data_path)/ptv3/ml_package_ptv3_det3d_head.param.yaml
     param_values:
-      - name: max_z
-        value: 3.0
-      - name: min_z
-        value: -2.5
+      - name: build_only
+        value: false
+      - name: model_path
+        value: $(var data_path)/ptv3
+      - name: model_variant
+        value: ptv3
+
   - node: /perception/occupancy_grid_map/occupancy_grid_map_node
     param_files: []
     param_values:

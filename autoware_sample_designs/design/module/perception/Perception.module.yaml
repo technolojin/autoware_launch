@@ -4,7 +4,7 @@ name: Perception.module
 
 instances:
   - name: obstacle_segmentation
-    entity: ObstacleSegmentation.module
+    entity: LidarSegmentationPtv3.module
   - name: object_recognition
     entity: ObjectRecognition.module
   - name: occupancy_grid_map
@@ -30,6 +30,7 @@ subscribers:
 publishers:
   - name: object_recognition/objects
   - name: obstacle_segmentation/pointcloud
+  - name: segmented/pointcloud
   - name: occupancy_grid_map/map
   - name: traffic_light_recognition/traffic_signals
 
@@ -77,6 +78,8 @@ connections:
   # outputs
   - - obstacle_segmentation.publisher.pointcloud
     - publisher.obstacle_segmentation/pointcloud
+  - - obstacle_segmentation.publisher.segmented_pointcloud
+    - publisher.segmented/pointcloud
   - - object_recognition.publisher.objects
     - publisher.object_recognition/objects
   - - occupancy_grid_map.publisher.map
