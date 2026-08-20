@@ -25,6 +25,7 @@ subscribers:
 
 publishers:
   - name: object_recognition/objects
+  - name: object_recognition/tracking/objects
   - name: obstacle_segmentation/pointcloud
   - name: segmented/pointcloud
   - name: occupancy_grid_map/map
@@ -38,8 +39,8 @@ connections:
   # object recognition
   - - subscriber.concatenated_pointcloud
     - object_recognition.subscriber.pointcloud
-  - - obstacle_segmentation.publisher.segmented_pointcloud
-    - object_recognition.subscriber.segmented_pointcloud
+  - - obstacle_segmentation.publisher.clustering_objects
+    - object_recognition.subscriber.clustering_objects
   - - subscriber.vector_map
     - object_recognition.subscriber.vector_map
   - - traffic_light_recognition.publisher.traffic_signals
@@ -72,6 +73,8 @@ connections:
     - publisher.segmented/pointcloud
   - - object_recognition.publisher.objects
     - publisher.object_recognition/objects
+  - - object_recognition.publisher.tracking/objects
+    - publisher.object_recognition/tracking/objects
   - - occupancy_grid_map.publisher.map
     - publisher.occupancy_grid_map/map
   - - traffic_light_recognition.publisher.traffic_signals
