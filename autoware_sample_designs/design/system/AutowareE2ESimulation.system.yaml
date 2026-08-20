@@ -68,9 +68,9 @@ components:
 
   # PERCEPTION
   - name: perception
-    entity: Perception.module
+    entity: PerceptionE2ESimulation.module
     compute_unit: main_ecu
-    parameter_set: sample_system_perception.parameter_set
+    parameter_set: e2e_simulation_perception.parameter_set
 
   # PLANNING
   - name: planning
@@ -98,6 +98,7 @@ node_groups:
     type: ros2_component_container_mt_ipc
     nodes:
       - /sensing/lidar/concatenate_and_time_sync
+      - /perception/obstacle_segmentation/*
       - /perception/occupancy_grid_map/occupancy_grid_map_node
   - name: lidar_top_container
     type: ros2_component_container_mt_ipc
