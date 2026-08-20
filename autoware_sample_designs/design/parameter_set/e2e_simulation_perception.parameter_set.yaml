@@ -34,19 +34,44 @@ parameters:
         value: true
 
   - node: /perception/obstacle_segmentation/crop_box_filter
-    param_files:
-      - crop_box_filter_param_file: $(var config_path)/perception/obstacle_segmentation/crop_box_filter.param.yaml
-    param_values: []
+    param_files: []
+    param_values:
+      - name: min_x
+        value: -100.0
+      - name: max_x
+        value: 150.0
+      - name: min_y
+        value: -70.0
+      - name: max_y
+        value: 70.0
+      - name: min_z
+        value: -10.0
+      - name: max_z
+        value: 4.0
 
   - node: /perception/obstacle_segmentation/common_ground_filter
     param_files:
-      - ground_segmentation_param_file: $(var config_path)/perception/obstacle_segmentation/ground_segmentation.param.yaml
       - vehicle_info_param_file: $(find-pkg-share $(var vehicle_model)_description)/config/vehicle_info.param.yaml
     param_values:
       - name: max_z
         value: 3.0
       - name: min_z
         value: -2.5
+
+  - node: /perception/obstacle_segmentation/pointcloud_map_filter/voxel_grid_downsample_filter
+    param_files: []
+    param_values:
+      - name: voxel_size_x
+        value: 0.1
+      - name: voxel_size_y
+        value: 0.1
+      - name: voxel_size_z
+        value: 0.1
+
+  - node: /perception/obstacle_segmentation/pointcloud_map_filter/voxel_based_compare_map_filter
+    param_files:
+      - voxel_based_compare_map_filter_param_file: $(find-pkg-share autoware_perception_launch)/config/object_recognition/detection/pointcloud_filter/voxel_based_compare_map_filter.param.yaml
+    param_values: []
 
   - node: /perception/obstacle_segmentation/clustering/euclidean_cluster
     param_files:
