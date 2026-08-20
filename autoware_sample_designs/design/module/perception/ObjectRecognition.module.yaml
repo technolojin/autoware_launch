@@ -12,34 +12,21 @@ instances:
 
 subscribers:
   # map
-  - name: pointcloud_map
   - name: vector_map
-  - name: service_pointcloud_map_diff
-  # localization
-  - name: kinematic_state
   # traffic lights
   - name: traffic_lights
   # lidar
   - name: pointcloud
-  - name: obstacle_pointcloud
-  - name: lidar_ml_objects
+  - name: segmented_pointcloud
 publishers:
   - name: objects
 
 connections:
   # detection
-  - - subscriber.pointcloud_map
-    - detection.subscriber.pointcloud_map
-  - - subscriber.vector_map
-    - detection.subscriber.vector_map
-  - - client.service_pointcloud_map_diff
-    - detection.client.service_pointcloud_map_diff
-  - - subscriber.kinematic_state
-    - detection.subscriber.kinematic_state
   - - subscriber.pointcloud
     - detection.subscriber.pointcloud
-  - - subscriber.obstacle_pointcloud
-    - detection.subscriber.obstacle_pointcloud
+  - - subscriber.segmented_pointcloud
+    - detection.subscriber.segmented_pointcloud
 
   # tracking
   - - detection.publisher.lidar_ml_objects
