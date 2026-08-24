@@ -37,9 +37,9 @@ this package                                   │
                                                ├── AutowareSample/
                                                │   ├── Runtime.launch.xml
                                                │   └── LoggingSimulation.launch.xml
-                                               ├── AutowareSamplePlanningSimulation/
+                                               ├── AutowarePlanningSimulation/
                                                │   └── PlanningSimulation.launch.xml
-                                               ├── AutowareSampleE2ESimulation/
+                                               ├── AutowareE2ESimulation/
                                                │   └── E2ESimulation.launch.xml
                                                └── ...node launchers...
 ```
@@ -69,9 +69,9 @@ autoware_sample_designs/
 │   ├── node/              # System-specific node definitions (wrapper/optional nodes only)
 │   ├── module/            # Reusable subsystem modules (sensing, perception, …)
 │   ├── system/
-│   │   ├── AutowareSample.system.yaml                   # On-vehicle system
-│   │   ├── AutowareSamplePlanningSimulation.system.yaml # Planning simulation system
-│   │   └── AutowareSampleE2ESimulation.system.yaml      # E2E (AWSIM) simulation system
+│   │   ├── AutowareSample.system.yaml             # On-vehicle system
+│   │   ├── AutowarePlanningSimulation.system.yaml # Planning simulation system
+│   │   └── AutowareE2ESimulation.system.yaml      # E2E (AWSIM) simulation system
 │   └── parameter_set/     # Parameter overrides per node, per mode
 ├── config/                # Shared parameter YAML files (owned by this package)
 ├── launch/                # Hand-written wrapper launch files for legacy integration
@@ -83,11 +83,11 @@ autoware_sample_designs/
 Each `*.system.yaml` is a self-contained system: its own components, connections and node groups.
 They are split along the sensor set and perception pipeline they run on, matching how `autoware_launch` and the sensor kits are organized:
 
-| System                             | Modes                          | Sensing / perception                                                                                   |
-| ---------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `AutowareSample`                   | `Runtime`, `LoggingSimulation` | Sample sensor kit, full perception pipeline; `LoggingSimulation` replays the sensor data from a rosbag |
-| `AutowareSamplePlanningSimulation` | `PlanningSimulation`           | No sensing; dummy object recognition and a simulated ego vehicle                                       |
-| `AutowareSampleE2ESimulation`      | `E2ESimulation`                | AWSIM sensor set, full perception pipeline                                                             |
+| System                       | Modes                          | Sensing / perception                                                                                   |
+| ---------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `AutowareSample`             | `Runtime`, `LoggingSimulation` | Sample sensor kit, full perception pipeline; `LoggingSimulation` replays the sensor data from a rosbag |
+| `AutowarePlanningSimulation` | `PlanningSimulation`           | No sensing; dummy object recognition and a simulated ego vehicle                                       |
+| `AutowareE2ESimulation`      | `E2ESimulation`                | AWSIM sensor set, full perception pipeline                                                             |
 
 ## Relationship with `autoware_launch`
 
