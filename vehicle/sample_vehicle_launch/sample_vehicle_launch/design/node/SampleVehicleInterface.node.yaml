@@ -82,3 +82,29 @@ processes:
       - periodic: 5 # Hz
     outcomes:
       - to_output: doors/status
+  - name: send_control_command
+    trigger_conditions:
+      - on_input: control_cmd
+      - on_input: actuation_cmd
+    outcomes:
+      - terminal: null
+  - name: send_emergency_command
+    trigger_conditions:
+      - on_input: emergency_cmd
+    outcomes:
+      - terminal: null
+  - name: send_gear_command
+    trigger_conditions:
+      - on_input: gear_cmd
+    outcomes:
+      - terminal: null
+  - name: send_turn_indicators_command
+    trigger_conditions:
+      - on_input: turn_indicators_cmd
+    outcomes:
+      - terminal: null
+  - name: send_hazard_lights_command
+    trigger_conditions:
+      - on_input: hazard_lights_cmd
+    outcomes:
+      - terminal: null
