@@ -1,4 +1,4 @@
-autoware_system_design_format: 0.3.2
+autoware_system_design_format: 0.5.0
 
 name: AutowareSample.system
 
@@ -41,6 +41,16 @@ modes:
 parameter_sets:
   # - runtime.parameter_set
   []
+
+compute_units:
+  - name: main_ecu
+    description: Autoware stack on the vehicle.
+  - name: simulation
+    kind: offboard
+    description: Simulators and their tools of the simulation modes.
+  - name: rosbag_replay
+    kind: offboard
+    description: Rosbag replay of the logging simulation mode.
 
 components:
   # Middleware
@@ -631,7 +641,7 @@ LoggingSimulation:
         parameter_set: universe_system.parameter_set
       - name: rosbag_replay
         entity: SampleRosbagReplay.node
-        compute_unit: dummy_ecu
+        compute_unit: rosbag_replay
     connections:
       - - rosbag_replay.publisher.sensing/^
         - sensing.subscriber.^
@@ -661,7 +671,7 @@ E2ESimulation:
     components:
       - name: awsim
         entity: SampleAWSIM.node
-        compute_unit: dummy_ecu
+        compute_unit: simulation
       - name: sensing
         entity: SampleSensorKitAWSIM.module
         compute_unit: main_ecu
@@ -801,7 +811,7 @@ PlanningSimulation:
     components:
       - name: planning_sim_rviz_plugin
         entity: PlanningSimRvizPlugins.module
-        compute_unit: dummy_ecu
+        compute_unit: simulation
       - name: perception
         entity: DummyObjectRecognition.module
         compute_unit: main_ecu
@@ -810,7 +820,7 @@ PlanningSimulation:
         compute_unit: main_ecu
       - name: simulator
         entity: SimplePlanningSimulator.node
-        compute_unit: main_ecu
+        compute_unit: simulation
       - name: dummy_traffic_light_publisher
         entity: DummyTrafficLightPublisher.node
         compute_unit: main_ecu
